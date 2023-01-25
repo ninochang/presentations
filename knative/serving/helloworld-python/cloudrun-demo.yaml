@@ -1,0 +1,36 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: kserving-helloworld-python # Service name
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/maxScale: '100' # Max instance count 100
+        autoscaling.knative.dev/minScale: '0' # Min instance count 0
+        run.googleapis.com/cpu-throttling: 'true' / 'false'
+        run.googleapis.com/sessionAffinity: 'false' # Disable session affinity.
+      name: kserving-helloworld-python-00004-manual # Next revision name
+    spec:
+      containerConcurrency: 80 # Maximum concurrent requests per instance
+      timeoutSeconds: 300 # Request timeout in seconds, can set up to 30 minute
+      containers:
+      # Image for next revision.
+      - image: asia.gcr.io/swag-nino-chang/kserving-helloworld-python 
+        resources:
+          limits:
+            cpu: 1000m # Scale up if usage over 60%
+            memory: 512Mi # Terminated container instance if exceed.
+        env:
+        - name: TARGET
+          value: Python Sample v3
+  traffic:
+  - latestRevision: true
+    tag: staging # Revision tag
+    percent: 0
+  - percent: 50
+    revisionName: kserving-helloworld-python-00002-man
+  - percent: 50
+    revisionName: kserving-helloworld-python-00003-xen
+
+

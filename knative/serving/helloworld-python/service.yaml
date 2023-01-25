@@ -1,0 +1,14 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: helloworld-python
+  namespace: default
+spec:
+  template:
+    spec:
+      containers:
+      - image: docker.io/a901002666/kserving-helloworld-python
+        env:
+        - name: TARGET
+          value: "Python Sample v1"
+      

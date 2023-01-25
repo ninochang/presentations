@@ -1,0 +1,12 @@
+apiVersion: serving.knative.dev/v1
+kind: Route
+metadata:
+  name: helloworld-python
+  namespace: default
+spec:
+  traffic:
+    - revisionName: helloworld-python-00002
+      percent: 0
+      tag: staging # A named route
+    - revisionName: helloworld-python-00001
+      percent: 100

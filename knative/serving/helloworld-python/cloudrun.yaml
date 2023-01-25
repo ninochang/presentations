@@ -1,0 +1,46 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  annotations:
+    client.knative.dev/user-image: asia.gcr.io/swag-nino-chang/kserving-helloworld-python
+    run.googleapis.com/ingress: all
+    run.googleapis.com/ingress-status: all
+  labels:
+    cloud.googleapis.com/location: asia-east1
+  name: kserving-helloworld-python
+  namespace: '200670789830'
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/maxScale: '100' # Max instance count 100
+        autoscaling.knative.dev/minScale: '0' # Min instance count 0
+        run.googleapis.com/sessionAffinity: 'false' # Disable session affinity.
+        client.knative.dev/user-image: asia.gcr.io/swag-nino-chang/kserving-helloworld-python
+        run.googleapis.com/client-name: gcloud
+        run.googleapis.com/client-version: 412.0.0
+      name: kserving-helloworld-python-00007-manual
+    spec:
+      containerConcurrency: 80
+      containers:
+      - env:
+        - name: TARGET
+          value: Python Sample v3
+        image: asia.gcr.io/swag-nino-chang/kserving-helloworld-python
+        ports:
+        - containerPort: 8080
+          name: http1
+        resources:
+          limits:
+            cpu: 1000m # Scale up if usage over 60%
+            memory: 512Mi # Terminated container instance if exceed.
+      serviceAccountName: 200670789830-compute@developer.gserviceaccount.com
+      timeoutSeconds: 300 # Request timeout in seconds, can set up to 30 sec
+  traffic:
+  - latestRevision: true
+    tag: staging
+    percent: 0
+  - percent: 50
+    revisionName: kserving-helloworld-python-00002-man
+  - percent: 50
+    revisionName: kserving-helloworld-python-00003-xen

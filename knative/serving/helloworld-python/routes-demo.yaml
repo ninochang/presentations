@@ -1,0 +1,13 @@
+apiVersion: serving.knative.dev/v1
+kind: Route
+metadata:
+  name: helloworld-python
+spec:
+  traffic:
+  - configurationName: helloworld-python
+    latestRevision: true
+    percent: 0    # No traffic will route to lastest revision
+    tag: staging  # Named route
+  - latestRevision: false
+    percent: 100  # All traffic will route revision helloworld-python-00001
+    revisionName: helloworld-python-00001

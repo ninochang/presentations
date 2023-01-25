@@ -1,0 +1,24 @@
+specVersion: 0.34.0
+name: fn
+runtime: python
+registry: docker.io/a901002666
+image: docker.io/a901002666/fn:latest
+imageDigest: sha256:3aa5397e5c0bd9ad51d16176a54b4280bfc137f483c8a86a4c6f9f8381020a60
+created: 2022-12-23T00:15:24.061251+08:00
+invocation:
+  format: http
+build:
+  buildpacks: []
+  builder: pack
+  buildEnvs: []
+run:
+  volumes: []
+  envs: []
+deploy:
+  namespace: default
+  annotations: {}
+  options: {}
+  labels: []
+  healthEndpoints:
+    liveness: /health/liveness
+    readiness: /health/readiness

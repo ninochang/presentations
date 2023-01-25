@@ -1,0 +1,33 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: helloworld-python # Service name
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/class: "kpa.autoscaling.knative.dev"
+        autoscaling.knative.dev/metric: "concurrency" # Use concurrency to determine autoscale
+        autoscaling.knative.dev/target: "100"  # Metric target to trigger autoscale
+        autoscaling.knative.dev/maxScale: '100' # Max instance count 100
+        autoscaling.knative.dev/minScale: '0' # Min instance count 0
+      name: helloworld-python-00002 # Next revision name
+    spec:
+      containerConcurrency: 80 # Maximum concurrent requests per instance (hard limit)
+      timeoutSeconds: 300 # Request timeout in seconds, can set up to 30 minute
+      containers:
+      # Image for next revision.
+      - image: docker.io/a901002666/kserving-helloworld-python 
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 512Mi # Terminated container instance if exceed.
+        env:
+        - name: TARGET
+          value: Python Sample v2
+  traffic:
+  - latestRevision: true
+    tag: staging # Named route
+    percent: 0
+  - percent: 100
+    revisionName: helloworld-python-00001
