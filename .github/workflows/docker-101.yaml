@@ -27,15 +27,15 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: Configure
-      id: config
-      run: |-
-        NPROC=$(nproc)
+    # - name: Configure
+    #   id: config
+    #   run: |-
+    #     NPROC=$(nproc)
 
-        echo "NPROC=$NPROC" >> $GITHUB_ENV
-        echo "NPROC=$NPROC" >> $GITHUB_OUTPUT
-        echo "repo-owner=${{ github.repository_owner }}" >> $GITHUB_OUTPUT
-        echo "repo-name=${GITHUB_REPOSITORY#*/docker-}" >> $GITHUB_OUTPUT
+    #     echo "NPROC=$NPROC" >> $GITHUB_ENV
+    #     echo "NPROC=$NPROC" >> $GITHUB_OUTPUT
+    #     echo "repo-owner=${{ github.repository_owner }}" >> $GITHUB_OUTPUT
+    #     echo "repo-name=${GITHUB_REPOSITORY#*/docker-}" >> $GITHUB_OUTPUT
 
     # - name: Set up QEMU
     #   uses: docker/setup-qemu-action@v2
@@ -56,7 +56,7 @@ jobs:
       uses: docker/metadata-action@v4
       with:
         images: |-
-          ${{ steps.config.outputs.repo-owner }}/${{ steps.config.outputs.repo-name }}-docker-101
+          a901002666/${{ steps.config.outputs.repo-name }}-docker-101
         tags: |-
           type=raw,value=${{ matrix.tag }}
 
