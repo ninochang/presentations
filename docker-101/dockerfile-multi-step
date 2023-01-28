@@ -1,0 +1,21 @@
+FROM        python:3.7.15-alpine3.17 AS builder
+
+COPY        requirements.txt .
+
+RUN         apk add --virtual .build-deps \
+                build-base \
+                libffi-dev && \
+            pip install -r requirements.txt && \
+            apk del .build-deps
+
+
+FROM        python:3.7.15-alpine3.17
+
+EXPOSE      8000
+
+ENV         FLASK_APP=app.py
+
+CMD [ "flask", "run", "-h", "0.0.0.0", "-p", "8000", "--debugger", "--reload" ]
+
+COPY        --from=builder /usr/local /usr/local
+COPY        app.py .
