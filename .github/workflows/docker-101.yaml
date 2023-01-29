@@ -19,9 +19,11 @@ jobs:
         tag:
         - base
         - multi-stage
-        dockerfile:
-        - "dockerfile"
-        - "dockerfile-multi-step"
+        include:
+          - tag: base
+            dockerfile: dockerfile
+          - tag: multi-stage
+            dockerfile: dockerfile-multi-step
 
     steps:
     - name: Checkout

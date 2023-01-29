@@ -3,7 +3,6 @@ FROM        python:3.7.15-alpine3.17
 EXPOSE      8000
 ENV         FLASK_APP=app.py
 
-COPY        . . 
 COPY        requirements.txt .
 
 RUN         apk add --virtual .build-deps \
