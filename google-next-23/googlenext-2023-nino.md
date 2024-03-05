@@ -2,11 +2,16 @@ footer: nino.chang@**swag**.live
 slidenumbers: true
 build-lists: true
 
+![fit](https://storage.googleapis.com/nino-public/presentations/google-next-23/firstpage.png)
+
+---
+
 ![fit](https://storage.googleapis.com/gweb-cloudblog-publish/images/GCN23_GE_BlogHeader_2436x1200_10.max-2500x2500.png)
 # [fit] Google Next 23'
 
 ---
 [.build-lists: false]
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
 
 # Outline
 - *Duet AI* integration to GCP products
@@ -23,6 +28,7 @@ build-lists: true
 # [fit] **Duet AI**
 ---
 [.build-lists: false]
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
 
 # Features
 - Assisted development
@@ -32,6 +38,7 @@ build-lists: true
 - Assisted security
 
 ---
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
 # Assisted Development
 - (2023) vscode[^1] / cloudshell 
 - (Future) PyCharm / Intel / IntelliJ IDEA / GoLand / WebStorm
@@ -46,9 +53,13 @@ build-lists: true
 [^2]: [chat with Duet AI document](https://cloud.google.com/code/docs/vscode/write-code-duet-ai)
 
 ---
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+
 Demo VScode
 
 ---
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+
 # Assisted Operations
 - Get help where you are
 - Transition from your question to cloud shell command
@@ -74,6 +85,7 @@ Suggestion to reduce cost
 - further move to check 
 
 ---
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
 
 # Assisted Data
 - SQL Completion
@@ -82,6 +94,8 @@ Suggestion to reduce cost
 - SQL Explainability
 
 ---
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+
 Demo bigquery suggestion.
 - -- Find Nino's salary
 - -- Find Nino's salary from `playground.employees`
@@ -89,6 +103,8 @@ Demo bigquery suggestion.
 - -- Use query above filter out member come from department_id 4
 
 ---
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+
 # Assisted no code development
 - with App sheet[^3]
 - Build app conversationally
@@ -96,15 +112,20 @@ Demo bigquery suggestion.
 [^3]: [app sheet](https://www.appsheet.com/home/apps)
 
 ---
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+
 # Assisted security
 Duet AI integrated with
 - Madiant
 - Chronicle
 
 ---
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+
 # [fit] **VertexAI**
 
 ---
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
 
 # Vision - Generation
 - Digital watermarking
@@ -115,6 +136,8 @@ Duet AI integrated with
 ![inline](https://storage.googleapis.com/nino-public/presentations/google-next-23/vision-generate-golden-style-apply.png)
 
 ---
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+
 # LLMs
 - variaties of model ready to use as fundamantal.
     - Llama2 (2023/7)
@@ -123,10 +146,13 @@ Duet AI integrated with
     - up to 47 basic models.
 
 ---
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
 
 # [fit] **Infrustructures** updates
 
 ---
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+
 # Infra
 - A3 VMs + Nvidia H100 GPU [^4]
     - Deploy A3 on VertexAI or GKE
@@ -139,14 +165,18 @@ Duet AI integrated with
 [^5]: [GKE version Comparison](https://cloud.google.com/kubernetes-engine/docs/concepts/gke-editions#edition_features)
 
 ---
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+
 # [fit] Sessions Sharing
 
 ---
-# [fit] Build an **AIOps** platform 
-# [fit] at enterprise scale 
-# [fit] with Google Cloud
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+
+## Build an **AIOps** platform at enterprise scale with Google Cloud
 
 ---
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+
 # Solve *Simple problem* -
 # Need to triage an application outage
 
@@ -155,6 +185,8 @@ Duet AI integrated with
 - How to reduce finger-pointing and need for war rooms to solve the issue
 
 ---
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+
 The application of AI capabilities, 
 such as natural language processing 
 and machine learning models, 
@@ -163,6 +195,8 @@ to *automate* and streamline operational workflows.
 ![left fit](https://storage.googleapis.com/nino-public/presentations/google-next-23/ai_ops_difination.png)
 
 ---
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+
 # Data from inside
 - Machine: The logging of performance statistics, storage, CPU, memory.
 - Application: Applications logs
@@ -171,6 +205,8 @@ to *automate* and streamline operational workflows.
 - Synthetic: Are synthetic transactions responding as expcted ?
 
 ---
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+
 # Data from outside
 - Human Sentiment: Customers express particular service is down as a tweet on twitter.
 - Incident Tickets: How do miscategorized tickets impack *Actual Business Impack*
@@ -183,6 +219,8 @@ to *automate* and streamline operational workflows.
 ![](https://storage.googleapis.com/nino-public/presentations/google-next-23/ai_ops_active_assists.png)
 
 ---
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+
 Uber's 3 use case of **Active Assist**[^6]
 
 [^6]: [Active assist](https://console.cloud.google.com/home/recommendations?hl=zh-tw&project=swag-nino-chang)
@@ -197,17 +235,21 @@ Uber's 3 use case of **Active Assist**[^6]
 ![fit](https://storage.googleapis.com/nino-public/presentations/google-next-23/compute-engine-recommender.png)
 
 ---
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+
 GitOps tools come in 2024.
 
 ---
-# [fit] Best practices for 
-# [fit] **DevOps velocity** and 
-# [fit] **security** on Google Cloud
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+
+## Best practices for **DevOps velocity** and **security** on Google Cloud
 
 ---
 ![fit](https://storage.googleapis.com/nino-public/presentations/google-next-23/dora-matrix.png)
 
 ---
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+
 - Improve anything except for recover time (since roll back is easy in cloud)
 - Use canary deployment gke stragety
 - Work on stability first and then speed.
@@ -215,23 +257,160 @@ GitOps tools come in 2024.
 - Cloud deploy do port forward for you
 
 ---
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
 
 # Demo cloud build increase
 - velocity
 - security
 
 ---
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+
+Cloud build trigger build and test on pull request
+
+```yaml
+steps:
+  # Build and tag using commit sha
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '.', '-t', 'asia-east1-docker.pkg.dev/$PROJECT_ID/pop-stats/pop-stats:${COMMIT_SHA}', '-f', 'Dockerfile']
+    dir: 'app'
+  # Run api tests
+  - name: 'asia-east1-docker.pkg.dev/$PROJECT_ID/pop-stats/pop-stats:${COMMIT_SHA}'
+    entrypoint: python
+    args: ["api_tests.py"]
+    dir: 'app'
+
+```
+
+---
+[.code-highlight: 8-10]
+
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+
+Cloud build trigger when main been merged
+
+```yaml
+apiVersion: deploy.cloud.google.com/v1
+kind: DeliveryPipeline
+metadata:
+  name: pop-stats-pipeline
+description: pop-stats application delivery pipeline
+serialPipeline:
+ stages:
+ - targetId: staging
+   profiles:
+   - staging
+ - targetId: prod
+   profiles:
+   - prod
+   strategy:
+    canary:
+      runtimeConfig:
+        kubernetes:
+          serviceNetworking:
+            service: "pop-stats"
+            deployment: "pop-stats"
+      canaryDeployment:
+        percentages: [5]
+        verify: true
+```
+
+---
+[.code-highlight: 11-23]
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+
+Cloud build trigger when main been merged
+
+```yaml
+apiVersion: deploy.cloud.google.com/v1
+kind: DeliveryPipeline
+metadata:
+  name: pop-stats-pipeline
+description: pop-stats application delivery pipeline
+serialPipeline:
+ stages:
+ - targetId: staging
+   profiles:
+   - staging
+ - targetId: prod
+   profiles:
+   - prod
+   strategy:
+    canary:
+      runtimeConfig:
+        kubernetes:
+          serviceNetworking:
+            service: "pop-stats"
+            deployment: "pop-stats"
+      canaryDeployment:
+        percentages: [5]
+        verify: true
+```
+
+---
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+
+Target `staging`
+
+```yaml
+apiVersion: deploy.cloud.google.com/v1
+kind: Target
+metadata:
+  name: staging
+description: staging cluster
+gke:
+  cluster: projects/swag-nino-chang/locations/us-central1/clusters/stagingcluster
+```
+
+---
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+
+Target `prod`
+
+```yaml
+apiVersion: deploy.cloud.google.com/v1
+kind: Target
+metadata:
+  name: prod
+description: prod multi-target
+requireApproval: true
+multiTarget:
+  targetIds: [prod1, prod2, prod3]
+```
+
+---
+[.code-highlight: 6-8]
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+
+Target `prod`
+
+```yaml
+apiVersion: deploy.cloud.google.com/v1
+kind: Target
+metadata:
+  name: prod
+description: prod multi-target
+requireApproval: true
+multiTarget:
+  targetIds: [prod1, prod2, prod3]
+```
+
+---
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+
 # **Gitlab** x Google Cloud [^7]
 ![fit original](https://about.gitlab.com/images/blogimages/gitlabgooglecloud.png)
 
 [^7]: [Google partner with GitLab](https://about.gitlab.com/blog/2023/08/29/gitlab-google-partnership-s3c/)
 
 ---
-# [fit] Running large-scale
-# [fit] **machine learning (ML)** 
-# [fit] on Google Kubernetes Engine (GKE)
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+
+## Running large-scale **machine learning (ML)** on Google Kubernetes Engine (GKE)
 
 ---
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+
 # [fit] > %200 
 
 ^workload training inference
@@ -241,24 +420,32 @@ workload tunning traing on gke
 ![](https://storage.googleapis.com/nino-public/presentations/google-next-23/Large-scall-gpu.png)
 
 ---
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+
 # Training
 - TPU v4 and v5e (preview) available in GKE
 - A3 available on GKE
 - Use kueue manage jobs with in pods for different teams
 
 ---
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+
 # Serve large models affordably
 - smaller container size using FasterTransformer
 - splitting a model across many smaller GPUs
 - Spot vs on-demand VMs
 
 ---
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+
 # Rapid pod startup saves money
 - 3x faster application startup with *image streaming*
 - Smaller containers using FasterTransformer and NVIDIA Triton
 - Using GCS FUSE for pod startup latency (data intensive)
 
 ---
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+
 # Improve GPU utilization
 - GPU time sharing up to 48 containers [^8]
 - Partition large GPU to many instance, reduce serving latency.
@@ -267,18 +454,22 @@ workload tunning traing on gke
 [^8]: [Time sharing GPU](https://cloud.google.com/kubernetes-engine/docs/concepts/timesharing-gpus)
 
 ---
-# [fit] **Prompt engineering**: 
-# [fit] Getting the skill 
-# [fit] your team needs next
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+
+## **Prompt engineering**: Getting the skill your team needs next
 
 ---
-# [fit] What's the most popular 
-# [fit] programing language in 2023 ?
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+
+## What's the most popular programing language in 2023 ?
 
 ---
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+
 # [fit] **English**
 
 ---
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
 
 # What kind of gen AI starts to see in 2023
 - Use gen AI go through complex documents.
@@ -288,8 +479,8 @@ workload tunning traing on gke
 
 ---
 [.build-lists: false]
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
 
-key of prompt engineering is to provide as much content as you can
 
 # What's propt engineering and myth in it
 - People think should talk like real comunication
@@ -301,8 +492,9 @@ let model understand your question easier.
 
 ---
 [.build-lists: false]
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
 
-# How prompt engineering affect knowledge worker ?
+## How prompt engineering affect knowledge worker ?
 - Emerge of new tool always affect all people
 - Marketer used to use only news papaer, now social media.
 - Get it sonner, get benefit sonner.
@@ -316,7 +508,9 @@ let model understand your question easier.
 
 ---
 [.build-lists: false]
-# User should have good understanding on underlying model to be a better prompt engineer ?
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+
+## User should have good understanding on underlying model to be a better prompt engineer ?
 
 - Need leading how to programming in english. 
 - Communication skill is more important.
@@ -331,31 +525,45 @@ Since it's believeable answer, how you test to be confident to your answer.
 
 ---
 [.build-lists: false]
-# How can we better prepare our team for gen AI ?
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+
+## How can we better prepare our team for gen AI ?
 - If your not starting expermenting / play aournd with gen AI, you're behind
 - Don't be afraid, keep experimenting.
 
 ---
 [.build-lists: false]
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
 
-# [QA] Copyright ?
+
+QA: Copyright ?
 - Legal community still working on it.
 - Still seek for balance knowledge sharing and keep secret inside.
 
 ---
 [.build-lists: false]
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
 
-# [QA] What advice you will give younger age people that help career path to become prompt engineering ?
+
+QA: What advice you will give younger age people that help career path to become prompt engineering ?
 - Follow your passion, focus on what you like
 - Many degree like Linguistic, are not aware it will come to work with engineering.
 - Improve your communication skill
 
 ---
 [.build-lists: false]
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
 
-# [QA] What modilities are primed for the next big fundational model ?
+
+QA: What modilities are primed for the next big fundational model ?
+
 - video model.
 - multi madility model, input and output.
+
+---
+![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+
+# [fit] Questions ?
 
 <!-- ---
 # [fit] What's new for 
