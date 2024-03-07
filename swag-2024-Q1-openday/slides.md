@@ -34,20 +34,23 @@ build-lists: false
 - Supported codecs:
     - video: H.264
     - audio: AAC
-- Support first mile and last mile.
-- RTMP still supported on many platform as first mile protocol.
+- Latency (3 ~ 5s)
+- RTMP still supported on many platform as publish protocol even though flash player is offically dead.
     
 ---
 ![original](background.png)
 
 # RTMP - Summary
 - Pros:
-    - Low Latency (3 ~ 5s)
     - High device compatabillity
     - Low resource usage due to TCP packets ordering.
 - Cons:
     - Old codecs
     - Vulnerable to bandwidth and network issues.
+
+^ 
+- 完全依賴TCP 處理 loss packet, 容易在網路不穩情況受 congestion control 影響造成 delay.
+- Enhanced-RTMP support VP9, HEVC, and AV1
 
 ---
 ![original](background.png)
@@ -56,9 +59,9 @@ build-lists: false
 
 - **UDP** (default) and **TCP**
 - Supported codecs:
-    - video: VP8, VP9, H.264
-    - audio: Opus
-
+    - video: VP8, VP9, H.264 (H.265, AV1 ... in progress)
+    - audio: Opus (... inprogress)
+- Lattency (< 500ms)
 - Products: 
     - Discord [^1]
     - Google meet
@@ -66,50 +69,26 @@ build-lists: false
 [^1]: [Discord blog discribe their webRTC architecture](https://discord.com/blog/how-discord-handles-two-and-half-million-concurrent-voice-users-using-webrtc)
 
 ---
+[.build-lists: true]
+
 ![original](background.png)
 
-# WebRTC - Connection Flow
-
-1. Exchange SDP with **Signaling Server**
-2. Collect **ICE candidates** with TURN server
-3. Exchange ICE candidates
-4. **UDP hole punching** estiblish connection
+# Why WebRTC is not codec agnostic ?
+- Relies codes supported by underlying browser.
+- Browser don't support specific codec for various reason, like expensive livense to use H.265.
+- Hardware encoding requirement for some codec like H.265, AV1 
+(But newer chrome starts support hardware encode)
 
 ---
+[.build-lists: true]
+
 ![original](background.png)
+# How does WebRTC handle packet loss ?
+- Forward Error Correction (FEC): Add redundant information to the transmitted packets, Allowing receiver to reconstruct lost packets even if they are not received.
 
-# WebRTC - Connection Flow
+- NACK: NACK notify sender to retransmit missing packets and fill in the gaps to maintain playback continuity.
 
-![inline](webrtc-connection.gif)
-
-ref: https://medium.com/agora-io/how-does-webrtc-work-996748603141
-
----
-![original](background.png)
-
-# WebRTC - TURN
-
-![inline](webrtc-TURN.gif)
-
-
-^ If NAT or Firewall configuration doesn't allow peer connect directly, need rely on TURN server relay.
-
----
-![original](background.png)
-
-# WebRTC - SDP
-
-- Session Description Protocol (SDP)
-- Communicate **codec, address, media type, audio and video** between peers.
-
----
-![original](background.png)
-
-# WebRTC - ICE candidates
-
-- Set of **public IP address and port** that could potentially be an address that receives data.
-- Client will gathere them by making a series of requests to a STUN server.
-
+- Adaptive bitrate control: Dynamically adjust the bitrate of the transmitted media stream based on network conditions.
 
 ---
 ![original](background.png)
@@ -117,11 +96,10 @@ ref: https://medium.com/agora-io/how-does-webrtc-work-996748603141
 # WebRTC - Summary
 
 - Pros:
-    - Low lattency (< 500ms)
     - Strong security ensured by SRTP[^2]
-    - Strong Community support, work on almost every browser
+    - Strong Community support, work on almost every browser.
+    - High stability under bad network
 - Cons:
-    - Maintain STUN and TURN server
     - Hard to scale when there's multi participants
     
 
@@ -134,7 +112,19 @@ ref: https://medium.com/agora-io/how-does-webrtc-work-996748603141
 
 - **UDP** based
 - Supported codec: codec agnostic
-- Products
+- Lattency: (< 500ms)
+- Loss packet handling: FEC, ARQ, Too-late packet
+- Timestamp-Based Packet Delivery (TSBPD)
+
+---
+[.build-lists: true]
+
+![original](background.png)
+
+# Why SRT codec agnostic ?
+- It doesn't have any codec limitation on data processing, 
+the responsibility of encoding/decoding fall on upstream app using SRT.
+- Acting as a normal udp packet wrap SRT content.
 
 ---
 ![original](background.png)
@@ -143,7 +133,7 @@ ref: https://medium.com/agora-io/how-does-webrtc-work-996748603141
 
 - Pros:
     - Codec agnostic
-    - AES encrypted content
+    - Strong security ensured by AES encrypted content.
     - High stability under bad network
 - Cons:
     - Not support by native web, require special player.
@@ -161,27 +151,32 @@ ref: https://medium.com/agora-io/how-does-webrtc-work-996748603141
 
 ---
 [.build-lists: true]
-![original](background.png)
-# Quest: What video/audio codec does RTMP support ?
+<!-- ![original](background.png) -->
+# [fit] Quest: What video/audio codec does 
+# [fit] **RTMP** support ?
 
 - video: H.264
 - audio: AAC
 
 ---
-![original](background.png)
+<!-- ![original](background.png) -->
 
 # [fit] Deep dive into
 # [fit]  **SRT**
 
 ---
 ![original](background.png)
-# Timestamp-Based Packet Delivery
 
-- **Reproduce** the timing of packets committed by the sending application to the SRT sender on **receiver** side.
-- Allows packets to be **scheduled** for delivery by the SRT **receiver** making them ready to be read by the receiving application 
+# Timestamp-Based Packet Delivery
+Timestamps allow the decoder to **reorder** packets if they arrive out of order due to network delays or retransmissions. Ensuring frames are decoded and displayed in the correct order.
 
 ---
 ![inline](srt-tsbpd.png)
+
+--- 
+![original](background.png)
+
+# Automatic Repeat Request
 
 ---
 # Packet Delivery Time
@@ -189,7 +184,11 @@ ref: https://medium.com/agora-io/how-does-webrtc-work-996748603141
 - Describe fomulla.
 
 ---
-# [TODO] Quest: packet delivery time 
+# [fit] Quest: packet delivery time 
+
+---
+![original](background.png)
+# Too Late Packet
 
 ---
 ![inline](srt-too-late-packet-drop.png)
