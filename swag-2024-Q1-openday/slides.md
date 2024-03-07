@@ -2,11 +2,12 @@ footer: **SWAG** backend team
 slidenumbers: true
 build-lists: false
 
-![original](background.png)
-
-# [fit] [TODO]一張圖開場，stream protocol 的演進
+# [fit] Go download **demo** resources.
+- https://shortlink/resource.
+- An QRCode
 
 ---
+
 ![fit](cover.png)
 
 ---
@@ -15,14 +16,14 @@ build-lists: false
 # Outline
 - RTMP vs WebRTC vs SRT
 - Deep dive into SRT
-- Why we switch from RTMP to SRT
+- Our choise
 - DEMO
 
 ---
 ![original](background.png)
 
-# [fit] Reminder download resource for demo.
-[TODO] list of resource.
+# [fit] [TODO]一張圖開場，stream protocol 的演進
+
 
 ---
 [.build-lists: false]
@@ -30,7 +31,7 @@ build-lists: false
 
 # RTMP 
 - **TCP** based
-- Supported codec:
+- Supported codecs:
     - video: H.264
     - audio: AAC
 - Support first mile and last mile.
@@ -41,12 +42,12 @@ build-lists: false
 
 # RTMP - Summary
 - Pros:
-    - Multicast support
-    - Low buffering
+    - Low Latency (3 ~ 5s)
+    - High device compatabillity
+    - Low resource usage due to TCP packets ordering.
 - Cons:
     - Old codecs
-    - Relative high latency (~30s)
-    - Vulnerable to bandwidth and network issue.
+    - Vulnerable to bandwidth and network issues.
 
 ---
 ![original](background.png)
@@ -54,7 +55,7 @@ build-lists: false
 # WebRTC
 
 - **UDP** (default) and **TCP**
-- Supported codec:
+- Supported codecs:
     - video: VP8, VP9, H.264
     - audio: Opus
 
@@ -72,7 +73,7 @@ build-lists: false
 1. Exchange SDP with **Signaling Server**
 2. Collect **ICE candidates** with TURN server
 3. Exchange ICE candidates
-4. **UDP whole punching** estiblish connection
+4. **UDP hole punching** estiblish connection
 
 ---
 ![original](background.png)
@@ -81,6 +82,7 @@ build-lists: false
 
 ![inline](webrtc-connection.gif)
 
+ref: https://medium.com/agora-io/how-does-webrtc-work-996748603141
 
 ---
 ![original](background.png)
@@ -115,8 +117,8 @@ build-lists: false
 # WebRTC - Summary
 
 - Pros:
-    - Sub-second latency
-    - Stron security ensured by SRTP[^2]
+    - Low lattency (< 500ms)
+    - Strong security ensured by SRTP[^2]
     - Strong Community support, work on almost every browser
 - Cons:
     - Maintain STUN and TURN server
@@ -131,7 +133,7 @@ build-lists: false
 # SRT
 
 - **UDP** based
-- Supported codec: content agnostic
+- Supported codec: codec agnostic
 - Products
 
 ---
@@ -141,75 +143,45 @@ build-lists: false
 
 - Pros:
     - Codec agnostic
-    - AED encrypted content
+    - AES encrypted content
     - High stability under bad network
 - Cons:
     - Not support by native web, require special player.
     - Require extra bandwidth for SRT machanism maintain stream quality
 
 ---
+![original](background.png)
 
 | Protocol | RTMP | WebRTC | SRT |
 | --- | --- | --- |--- |
 | Supported codecs |H.264, AAC| H.264, VP9, VP8, Opus, G.711 G.722, iLBC, iSAC | Unlimited |
 | Latency | < 5s | < 500ms | < 500ms|
-| Security | Need Extension | Build in | Build in AES |
+| Security | Need Extension | Built in | Built in (AES) |
 | Disruption Tolerance | Average | Good | Good |
 
 ---
 [.build-lists: true]
+![original](background.png)
 # Quest: What video/audio codec does RTMP support ?
 
 - video: H.264
 - audio: AAC
 
 ---
-# [fit] Deep dive into 
-# [fit] **SRT**
+![original](background.png)
+
+# [fit] Deep dive into
+# [fit]  **SRT**
 
 ---
-# Deep dive into SRT
-- Packet structure
-- Handshake
-- Acknowledgement and Loss Packet Handling
-- Timestamp-Based Packet Delivery
-- Too late packet
-
----
-# Packet structure
-
-- Transmitted as UDP payload
-- Acting as a wrapper around content so that it's content agnostic
-
----
-![inline](udp-diagram-header.png)
-![inline 180%](srt-packet-header.png)
-
-
----
-![inline full](srt-packet-header-detail.png)
-
----
-# Handshake
-
-- SRT Socket IDs
-- SRT Buffer Latency
-- Initial RTT value estimation
-- Initial TSBPD time base value calculation
-- Stream encryption key
-
----
-# Acknowledgement and Loss Packet Handling
-[TODO]
-- ARQ / FEC
-- ACK / ACKACK / NACK
-- Too Late packet trigger ACK
-
----
+![original](background.png)
 # Timestamp-Based Packet Delivery
 
 - **Reproduce** the timing of packets committed by the sending application to the SRT sender on **receiver** side.
 - Allows packets to be **scheduled** for delivery by the SRT **receiver** making them ready to be read by the receiving application 
+
+---
+![inline](srt-tsbpd.png)
 
 ---
 # Packet Delivery Time
@@ -217,15 +189,10 @@ build-lists: false
 - Describe fomulla.
 
 ---
-![inline](srt-tsbpd.png)
-
----
 # [TODO] Quest: packet delivery time 
 
 ---
-# Too late packet
-
-[TODO] too late packet on sender/receiver side.
+![inline](srt-too-late-packet-drop.png)
 
 
 ---
