@@ -36,7 +36,6 @@ build-lists: false
     - audio: AAC
 - Latency (3 ~ 5s)
 - RTMP still supported on many platform as publish protocol even though flash player is offically dead.
-- Adobe stop update RTMP and didn't submit to RFC.
     
 ---
 ![original](background.png)
@@ -50,6 +49,7 @@ build-lists: false
     - Vulnerable to bandwidth and network issues.
 
 ^ 
+- Adobe stop update RTMP and didn't submit to RFC.
 - 完全依賴TCP 處理 loss packet, 容易在網路不穩情況受 congestion control 影響造成 delay.
 - Enhanced-RTMP support VP9, HEVC, and AV1
 
@@ -62,7 +62,7 @@ build-lists: false
 - Supported codecs:
     - video: VP8, VP9, H.264 (H.265, AV1 ... in progress)
     - audio: Opus (... inprogress)
-- Lattency (< 500ms)
+- Latency (< 500ms)
 - Products: Discord [^1] ,Google meet
 
 [^1]: [Discord blog discribe their webRTC architecture](https://discord.com/blog/how-discord-handles-two-and-half-million-concurrent-voice-users-using-webrtc)
@@ -75,8 +75,8 @@ build-lists: false
 # Why WebRTC is not codec agnostic ?
 - Relies codecs supported by underlying browser.
 - Browser don't support specific codec for various reasons, like expensive livense to use H.265.
-- Hardware encoding requirement for some codec like H.265, AV1 
-(But newer chrome starts support hardware encode)
+- Hardware acceleration requirement for some codecs like H.265, AV1 
+(But newer chrome starts support hardware acceleration)
 
 ---
 [.build-lists: true]
@@ -87,7 +87,7 @@ build-lists: false
 
 - NACK: Notify sender to retransmit missing packets and fill in the gaps to maintain playback continuity.
 
-- Adaptive bitrate control: Dynamically adjust the bitrate of the transmitted media stream based on network conditions.
+- Adaptive Bitrate Control: Dynamically adjust the bitrate of the transmitted media stream based on network conditions.
 
 ---
 ![original](background.png)
@@ -123,9 +123,9 @@ build-lists: false
 ![original](background.png)
 
 # Why SRT codec agnostic ?
-- It doesn't have any codec limitation on data processing, 
+- It doesn't have any codecs limitation on data processing, 
 the responsibility of encoding/decoding fall on upstream app using SRT.
-- Acting as a normal udp packet wrap SRT content.
+- Acts as a normal udp packet that wraps SRT content.
 
 ---
 [.build-lists: true]
@@ -135,8 +135,8 @@ the responsibility of encoding/decoding fall on upstream app using SRT.
 
 - Pros:
     - Codec agnostic
-    - Strong security ensured by AES encrypted content.
-    - High stability under bad network
+    - Strong security ensured by built-in AES.
+    - High stability under bad network conditions
 - Cons:
     - Not support by native web, require special player.
     - Require extra bandwidth for SRT machanism maintain stream quality
