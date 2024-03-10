@@ -128,15 +128,14 @@ the responsibility of encoding/decoding fall on upstream app using SRT.
 - Acts as a normal udp packet that wraps SRT content.
 
 ---
-[.build-lists: true]
 ![original](background.png)
 
 # SRT - Summary
 
 - Pros:
     - Codec agnostic
-    - Strong security ensured by built-in AES.
     - High stability under bad network conditions
+    - Strong security ensured by built-in AES.
 - Cons:
     - Not support by native web, require special player.
     - Require extra bandwidth for SRT machanism maintain stream quality
