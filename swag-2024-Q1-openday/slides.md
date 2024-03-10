@@ -269,7 +269,7 @@ $$PktTsbpdTime = TsbpdTimeBase + PktTimestamp + TsbpdDelay + Drift$$
 # Why we switch to SRT
 
 - SRT is more stable under bad internet.
-- Lack of newer codec support
+- Lack of newer codecs support
 
 ---
 # [fit] Compareison video RTMP vs SRT.
