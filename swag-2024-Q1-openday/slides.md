@@ -152,8 +152,7 @@ the responsibility of encoding/decoding fall on upstream app using SRT.
 
 ---
 [.build-lists: true]
-<!-- ![original](background.png) -->
-# [fit] Quest 1: What video/audio codec does 
+# [fit] Quiz 1: What video/audio codec does 
 # [fit] **RTMP** support ?
 
 - video: H.264
@@ -175,6 +174,10 @@ the responsibility of encoding/decoding fall on upstream app using SRT.
 # Timestamp-Based Packet Delivery
 - Timestamps allow the receiver to **reorder** packets before handover to decoder.
 - Ensuring packets are decoded and displayed in the correct order
+
+--- 
+# Correct order of packets matters
+![inline](srt-decoder-worst-nightmare.png) ![inline](srt-happy-decoder.png)
 
 
 --- 
@@ -199,25 +202,25 @@ $$PktTsbpdTime = TsbpdTimeBase + PktTimestamp + TsbpdDelay + Drift$$
 
 ---
 
-| Serial Number | PktTimestamp | Time Base    | RCV Clock    | SRT Latency | Drift | Packet Delivery Time |
-|---------------|--------------|--------------|--------------|-------------|-------|----------------------|
-| 1             | 20           | 00:00:00,040 | 00:00:00,060 | 120         | 0     | 00:00:00,180         |
-| 2             | 40           | 00:00:00,040 | 00:00:00,080 | 120         | 0     | 00:00:00,200         |
-| 5             | 100          | 00:00:00,040 | 00:00:00,140 | 120         | 0     | 00:00:00,260         |
-| 3             | 60           | 00:00:00,040 | 00:00:00,210 | 120         | 0     | 00:00:00,220         |
-| 4             | 80           | 00:00:00,040 | 00:00:00,212 | 120         | 0     | 00:00:00,240         |
+| Serial Number | Pkt Timestamp | Time Base | SRT Latency | Drift | Packet Delivery Time |
+|---------------|---------------|-----------|-------------|-------|----------------------|
+| 1             | 20            | 40        | 120         | 0     | 180                  |
+| 2             | 40            | 40        | 120         | 0     | 200                  |
+| 5             | 100           | 40        | 120         | 0     | 260                  |
+| 3             | 60            | 40        | 120         | 0     | 220                  |
+| 4             | 80            | 40        | 120         | 0     | 240                  |
+
 
 ^ 想像Receiver 端收到1~5 packate, 計算Packet Delivery Time 的範例。
 
 ---
 [.build-lists: true]
-# [fit] Quest 2: packet delivery time 
+# [fit] Quiz 2: packet delivery time 
 
-| Serial Number | PktTimestamp | Time Base    | RCV Clock    | SRT Latency | Drift | Packet Delivery Time |
-|---------------|--------------|--------------|--------------|-------------|-------|----------------------|
-| 6             | 120          | 00:00:00,040 | 00:00:00,160 | 120         | 0     | 00:00:00,???         |
-| 7             | 140          | 00:00:00,040 | 00:00:00,180 | 120         | 0     | 00:00:00,???         |
-
+| Serial Number | Pkt Timestamp | Time Base | SRT Latency | Drift | Packet Delivery Time |
+|---------------|---------------|-----------|-------------|-------|----------------------|
+| 6             | 120           | 40        | 120         | 0     | ???                  |
+| 7             | 140           | 40        | 120         | 0     | ???                  |
 
 - 6: 00:00:00,280
 - 7: 00:00:00,300
@@ -233,24 +236,45 @@ $$PktTsbpdTime = TsbpdTimeBase + PktTimestamp + TsbpdDelay + Drift$$
 [.build-lists: true]
 ![original](background.png)
 # Too Late Packet
-- Sender will drop packets that have no chance to be delivered in time.
-- Packet is considered "too late" if the packet timestamp is older than **TLPKTDROP_THRESHOLD**
-- Receiver will "skip" this packet and send a fake ACK packet to the sender
+- **Receiver** will "skip" this packet and send a fake ACK packet to the sender
+- **Sender** will drop packets that have no chance to be delivered in time.
+- Packet is considered "too late" if the packet timestamp is older than **TlPktDropThreshold**
 
 ---
-# [fit] Quest 3: Starts from with is too late ?
+![inline 30%](srt-too-late.png)
+
+---
+- $$NOW = 200$$
+- $$TlPktDropThreshold = 150$$
+
+| Serial Number | PktTimestamp | Is Too Late |
+|---------------|--------------|-------------|
+| 1             | 20           | Y           |
+| 2             | 40           | Y           |
+| 3             | 60           | N           |
+| 4             | 80           | N           |
+| 5             | 100          | N           |
+
+^ 假設這是一個sender 的 buffer, 哪些packet too late ?
+
+---
+# [fit] Quiz 3: Starts from with is too late ?
 [.build-lists: true]
 
-| Serial Number    | PktTimestamp | Time Base    | RCV Clock    | SRT Latency | Drift | TLPKTDROP_THRESHOLD |
-|------------------|--------------|--------------|--------------|-------------|-------|---------------------|
-| 3                | 60           | 00:00:00,040 | 00:00:00,210 | 120         | 0     | 150                 |
-| 3 (retransmit-1) | 60           | 00:00:00,040 | 00:00:00,235 | 120         | 0     | 150                 |
-| 3 (retransmit-2) | 60           | 00:00:00,040 | 00:00:00,260 | 120         | 0     | 150                 |
-| 3 (retransmit-3) | 60           | 00:00:00,040 | 00:00:00,285 | 120         | 0     | 150                 |
+- $$TlPktDropThreshold = 125$$
 
-- retransmit-2 is too late.
+| Time | Serial Number    | PktTimestamp | Is Too Late |
+|------|------------------|--------------|-------------|
+| 140  | 3                | 60           | ?           |
+| 160  | 3 (retransmit-1) | 60           | ?           |
+| 180  | 3 (retransmit-2) | 60           | ?           |
+| 200  | 3 (retransmit-3) | 60           | ?           |
 
-^ 怎麼算？ 60 + ,040 + 150 = ,250
+
+- retransmit-3 is too late.
+
+^ 怎麼算？ Time - 125 < 60
+ Time < 185 is not too late
 
 ---
 # What protocol do we use, why ?
@@ -282,6 +306,13 @@ $$PktTsbpdTime = TsbpdTimeBase + PktTimestamp + TsbpdDelay + Drift$$
 - Variable tuning
 - Client support ?
 
+---
+![original](background.png)
+
+# RTMP References:
+- https://www.wowza.com/blog/history-of-streaming-media
+- https://ossrs.net/lts/zh-cn/docs/v5/doc/rtmp
+- https://resi.io/blog/what-is-rtmp-and-alternatives/
 
 ---
 ![original](background.png)
@@ -289,6 +320,15 @@ $$PktTsbpdTime = TsbpdTimeBase + PktTimestamp + TsbpdDelay + Drift$$
 # WebRTC References:
 - https://medium.com/agora-io/how-does-webrtc-work-996748603141
 - https://www.100ms.live/blog/webrtc-turn-server
+- https://webrtcforthecurious.com/docs/04-securing/
+- https://webrtc.mthli.com/basic/ice-stun-turn/
+
+---
+# SRT References:
+- https://github.com/Haivision/srt?tab=readme-ov-file
+- https://qiita.com/tomoyafujita/items/2e10a9b9d463a36d4a3e
+- https://github.com/Haivision/srt-rfc/blob/main/notes/notes_data_transmission.md
+
 
 ---
 ![original](background.png)
