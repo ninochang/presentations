@@ -98,7 +98,7 @@ build-lists: false
 # WebRTC - Summary
 
 - Pros:
-    - High stability under bad network
+    - High stability under bad network conditions
     - Strong Community support, work on almost every browser.
     - Strong security ensured by DTLS[^3], SRTP[^4]
 - Cons:
