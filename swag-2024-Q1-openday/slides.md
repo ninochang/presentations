@@ -2,9 +2,9 @@ footer: **SWAG** backend team
 slidenumbers: true
 build-lists: false
 
-# [fit] Go download **demo** resources.
-- https://shortlink/resource.
-- An QRCode
+# [fit] Go download **demo** resource.
+
+![inline](setup-instruction.png)
 
 ---
 
