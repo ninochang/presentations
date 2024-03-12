@@ -147,7 +147,7 @@ the responsibility of encoding/decoding fall on upstream app using SRT.
 | --- | --- | --- |--- |
 | Supported Codecs |H.264, AAC| H.264, VP9, VP8, Opus, G.711 G.722, iLBC, iSAC | Unlimited |
 | Latency | < 5s | < 500ms | < 500ms|
-| Security | RTMPS/RTMPE | Built in | Built in (AES) |
+| Security | RTMPS/RTMPE | Built in (DTLS, SRTP) | Built in (AES) |
 | Disruption Tolerance | Average | Good | Good |
 
 ---
