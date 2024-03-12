@@ -45,13 +45,16 @@ build-lists: false
     - High device compatabillity
     - Low resource usage due to TCP packets ordering.
 - Cons:
-    - Old codecs
+    - Old codecs[^1]
     - Vulnerable to bandwidth and network issues.
+
+[^1]: [RTMP Extended](https://github.com/veovera/enhanced-rtmp)
 
 ^ 
 - Adobe stop update RTMP and didn't submit to RFC.
 - 完全依賴TCP 處理 loss packet, 容易在網路不穩情況受 congestion control 影響造成 delay.
-- Enhanced-RTMP support VP9, HEVC, and AV1
+- Enhanced-RTMP support VP9, HEVC, and AV1[^Enhanced-RTMP]
+
 
 ---
 ![original](background.png)
@@ -63,9 +66,9 @@ build-lists: false
     - video: VP8, VP9, H.264 (H.265, AV1 ... in progress)
     - audio: Opus (... inprogress)
 - Latency (< 500ms)
-- Products: Discord [^1] ,Google meet
+- Products: Discord [^2] ,Google meet
 
-[^1]: [Discord blog discribe their webRTC architecture](https://discord.com/blog/how-discord-handles-two-and-half-million-concurrent-voice-users-using-webrtc)
+[^2]: [Discord blog discribe their webRTC architecture](https://discord.com/blog/how-discord-handles-two-and-half-million-concurrent-voice-users-using-webrtc)
 
 ---
 [.build-lists: true]
@@ -97,14 +100,14 @@ build-lists: false
 - Pros:
     - High stability under bad network
     - Strong Community support, work on almost every browser.
-    - Strong security ensured by DTLS[^2], SRTP[^3]
+    - Strong security ensured by DTLS[^3], SRTP[^4]
 - Cons:
     - Hard to scale when there's multi participants
     
 
-[^2]: [Datagram Transport Layer Security](https://datatracker.ietf.org/doc/html/rfc6347)
+[^3]: [Datagram Transport Layer Security](https://datatracker.ietf.org/doc/html/rfc6347)
 
-[^3]: [Secure Real-Time Transport Protocol](https://datatracker.ietf.org/doc/html/rfc3711)
+[^4]: [Secure Real-Time Transport Protocol](https://datatracker.ietf.org/doc/html/rfc3711)
 
 ---
 ![original](background.png)
