@@ -74,7 +74,7 @@ build-lists: false
 
 # Why WebRTC is not codec agnostic ?
 - Relies codecs supported by underlying browser.
-- Browser don't support specific codec for various reasons, like expensive livense to use H.265.
+- Browsers don't support specific codecs for various reasons, like expensive license to use H.265.
 - Hardware acceleration requirement for some codecs like H.265, AV1 
 (But newer chrome starts support hardware acceleration)
 
