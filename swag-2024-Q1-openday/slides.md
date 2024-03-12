@@ -173,6 +173,7 @@ the responsibility of encoding/decoding fall on upstream/downstream app using SR
 ^ 每個packet都會有serial number
 
 ---
+[.build-lists: true]
 ![original](background.png)
 
 # Timestamp-Based Packet Delivery
@@ -206,13 +207,13 @@ $$PktTsbpdTime = TsbpdTimeBase + PktTimestamp + TsbpdDelay + Drift$$
 
 ---
 
-| Serial Number | Pkt Timestamp | Time Base | SRT Latency | Drift | Packet Delivery Time |
-|---------------|---------------|-----------|-------------|-------|----------------------|
-| 1             | 20            | 40        | 120         | 0     | 180                  |
-| 2             | 40            | 40        | 120         | 0     | 200                  |
-| 5             | 100           | 40        | 120         | 0     | 260                  |
-| 3             | 60            | 40        | 120         | 0     | 220                  |
-| 4             | 80            | 40        | 120         | 0     | 240                  |
+| Packet Delivery Time | Serial Number | Pkt Timestamp | Time Base | SRT Latency | Drift |
+|----------------------|---------------|---------------|-----------|-------------|-------|
+| 180                  | 1             | 20            | 40        | 120         | 0     |
+| 200                  | 2             | 40            | 40        | 120         | 0     |
+| 220                  | 3             | 60            | 40        | 120         | 0     |
+| 240                  | 4             | 80            | 40        | 120         | 0     |
+| 260                  | 5             | 100           | 40        | 120         | 0     |
 
 
 ^ 想像Receiver 端收到1~5 packate, 計算Packet Delivery Time 的範例。
@@ -221,10 +222,10 @@ $$PktTsbpdTime = TsbpdTimeBase + PktTimestamp + TsbpdDelay + Drift$$
 [.build-lists: true]
 # [fit] Quiz 2: packet delivery time 
 
-| Serial Number | Pkt Timestamp | Time Base | SRT Latency | Drift | Packet Delivery Time |
-|---------------|---------------|-----------|-------------|-------|----------------------|
-| 6             | 120           | 40        | 120         | 0     | ???                  |
-| 7             | 140           | 40        | 120         | 0     | ???                  |
+| Packet Delivery Time | Serial Number | Pkt Timestamp | Time Base | SRT Latency | Drift |
+|----------------------|---------------|---------------|-----------|-------------|-------|
+| ???                  | 6             | 120           | 40        | 120         | 0     |
+| ???                  | 7             | 140           | 40        | 120         | 0     |
 
 - 6: 00:00:00,280
 - 7: 00:00:00,300
