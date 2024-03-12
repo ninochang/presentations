@@ -245,7 +245,16 @@ $$PktTsbpdTime = TsbpdTimeBase + PktTimestamp + TsbpdDelay + Drift$$
 - Packet is considered "too late" if the packet timestamp is older than **TlPktDropThreshold**
 
 ---
-![inline 30%](srt-too-late.png)
+![inline 30%](srt-too-late-4.png)
+
+---
+![inline 30%](srt-too-late-3.png)
+
+---
+![inline 30%](srt-too-late-2.png)
+
+---
+![inline 30%](srt-too-late-1.png)
 
 ---
 - $$NOW = 200$$
@@ -299,7 +308,19 @@ $$PktTsbpdTime = TsbpdTimeBase + PktTimestamp + TsbpdDelay + Drift$$
 
 ---
 # [fit] Real World Compareison video RTMP vs SRT.
+- Publisher: iPhone 14pro / Larix, 台哥大5G.
+- Player: HLS.
 
+---
+# Elevator
+
+![inline](srt-elevator.mov)
+
+
+---
+# Underground
+
+![inline](srt-underground.mov)
 
 ---- 
 ![original](background.png)
