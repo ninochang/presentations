@@ -42,8 +42,8 @@ build-lists: false
 
 # RTMP - Summary
 - Pros:
-    - High device compatabillity
-    - Low resource usage due to TCP packets ordering.
+    - High device compatibility
+    - Low resource usage since TCP took care of packets ordering.
 - Cons:
     - Old codecs[^1]
     - Vulnerable to bandwidth and network issues.
@@ -51,8 +51,8 @@ build-lists: false
 [^1]: [RTMP Extended](https://github.com/veovera/enhanced-rtmp)
 
 ^ 
-- Adobe stop update RTMP and didn't submit to RFC.
-- 完全依賴TCP 處理 loss packet, 容易在網路不穩情況受 congestion control 影響造成 delay.
+- Adobe stopped updating RTMP and didn't submit to RFC.
+- 完全依賴 TCP 處理 loss packet, 容易在網路不穩情況受 congestion control 影響造成 delay.
 - Enhanced-RTMP support VP9, HEVC, and AV1[^Enhanced-RTMP]
 
 
@@ -76,7 +76,7 @@ build-lists: false
 ![original](background.png)
 
 # Why WebRTC is not codec agnostic ?
-- Relies codecs supported by underlying browser.
+- Relies codecs to be supported by underlying browser.
 - Browsers don't support specific codecs for various reasons, like expensive license to use H.265.
 - Hardware acceleration requirement for some codecs like H.265, AV1 
 (But newer chrome starts support hardware acceleration)
@@ -99,10 +99,10 @@ build-lists: false
 
 - Pros:
     - High stability under bad network conditions
-    - Strong Community support, work on almost every browser.
+    - Strong Community support, works on almost every browser.
     - Strong security ensured by DTLS[^3], SRTP[^4]
 - Cons:
-    - Hard to scale when there's multi participants
+    - Hard to scale when there's multiple participants
     
 
 [^3]: [Datagram Transport Layer Security](https://datatracker.ietf.org/doc/html/rfc6347)
@@ -115,7 +115,7 @@ build-lists: false
 # SRT
 
 - **UDP** based
-- Supported codec: codec agnostic
+- Supported codec: Codec agnostic
 - Latency: (< 500ms)
 - Loss packet handling: FEC, ARQ, Too-late packet
 - Timestamp-Based Packet Delivery (TSBPD), optimize decoder performance.
@@ -127,7 +127,7 @@ build-lists: false
 
 # Why SRT codec agnostic ?
 - It doesn't have any codecs limitation on data processing, 
-the responsibility of encoding/decoding fall on upstream app using SRT.
+the responsibility of encoding/decoding fall on upstream/downstream app using SRT.
 - Acts as a normal udp packet that wraps SRT content.
 
 ---
@@ -136,12 +136,12 @@ the responsibility of encoding/decoding fall on upstream app using SRT.
 # SRT - Summary
 
 - Pros:
-    - Codec agnostic
-    - High stability under bad network conditions
+    - Codec agnostic.
+    - High stability under bad network conditions.
     - Strong security ensured by built-in AES.
 - Cons:
     - Not support by native web, require special player.
-    - Require extra bandwidth for SRT machanism maintain stream quality
+    - Require extra bandwidth for SRT machanism maintain stream quality.
 
 ---
 ![original](background.png)
@@ -177,7 +177,7 @@ the responsibility of encoding/decoding fall on upstream app using SRT.
 
 # Timestamp-Based Packet Delivery
 - Timestamps allow the receiver to **reorder** packets before handover to decoder.
-- Ensuring packets are decoded and displayed in the correct order
+- Ensuring packets are delivered to the decoder in the correct order
 
 --- 
 # Correct order of packets matters
@@ -309,7 +309,7 @@ $$PktTsbpdTime = TsbpdTimeBase + PktTimestamp + TsbpdDelay + Drift$$
 ---
 # [fit] Real World Compareison video RTMP vs SRT.
 - Publisher: iPhone 14pro / Larix, 台哥大5G.
-- Player: HLS.
+- Playback: VLC playing HLS manifest.
 
 ---
 # Elevator
@@ -331,13 +331,13 @@ $$PktTsbpdTime = TsbpdTimeBase + PktTimestamp + TsbpdDelay + Drift$$
 - Unmaintained publisher client library
 
 ^ Limited SRT resource
-- ios package
-    - mememory, resource management no correct.
-    - srt version is old, seems not maintain
-    - fork public and patch by ourself
-- connection not stable, 5 second (srs configuration)
+- iOS client side library
+    - Memory, resource management wasn't optimal.
+    - Stale `libsrt` version
+    - Had to patch the package ourselves.
+- Unstable connection due to a hard coded 5 seconds wait time within downstream ingestion.
 - Streampack (android), SRTHaishinKit(ios) is haivision wrapper.
-- Stream filter is hook on livrary, need to hook on each library.
+- Stream filter is hook on library, need to hook on each library.
 
 
 ---
