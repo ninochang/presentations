@@ -306,7 +306,17 @@ $$PktTsbpdTime = TsbpdTimeBase + PktTimestamp + TsbpdDelay + Drift$$
 # What problem did we encounter switching SRT
 
 - Variable tuning
-- Client support ?
+- Unmaintained publisher client library
+
+^ Limited SRT resource
+- ios package
+    - mememory, resource management no correct.
+    - srt version is old, seems not maintain
+    - fork public and patch by ourself
+- connection not stable, 5 second (srs configuration)
+- Streampack (android), SRTHaishinKit(ios) is haivision wrapper.
+- Stream filter is hook on livrary, need to hook on each library.
+
 
 ---
 ![original](background.png)
