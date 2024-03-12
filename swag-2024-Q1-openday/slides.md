@@ -22,7 +22,7 @@ build-lists: false
 ---
 [.footer: https://www.wowza.com/blog/history-of-streaming-media]
 
-![inline](livestream-protocols-1.png) ![inline](livestream-protocols-2.png)
+![inline](livestream-protocols-history.png)
 
 
 ---
@@ -298,7 +298,7 @@ $$PktTsbpdTime = TsbpdTimeBase + PktTimestamp + TsbpdDelay + Drift$$
 - Lack of newer codecs support
 
 ---
-# [fit] Compareison video RTMP vs SRT.
+# [fit] Real World Compareison video RTMP vs SRT.
 
 
 ---- 
