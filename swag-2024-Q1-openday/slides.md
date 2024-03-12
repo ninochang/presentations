@@ -264,7 +264,6 @@ $$PktTsbpdTime = TsbpdTimeBase + PktTimestamp + TsbpdDelay + Drift$$
 # [fit] Quiz 3: Starts from with is too late ?
 [.build-lists: true]
 
-- $$TlPktDropThreshold = 125$$
 
 | Time | Serial Number    | PktTimestamp | Is Too Late |
 |------|------------------|--------------|-------------|
@@ -273,8 +272,8 @@ $$PktTsbpdTime = TsbpdTimeBase + PktTimestamp + TsbpdDelay + Drift$$
 | 180  | 3 (retransmit-2) | 60           | ?           |
 | 200  | 3 (retransmit-3) | 60           | ?           |
 
-
-- retransmit-3 is too late.
+- $$TlPktDropThreshold = 125$$
+- ANS: retransmit-3 is too late.
 
 ^ 怎麼算？ Time - 125 < 60
  Time < 185 is not too late
