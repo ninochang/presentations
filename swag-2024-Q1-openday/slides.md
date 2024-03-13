@@ -325,7 +325,7 @@ $$PktTsbpdTime = TsbpdTimeBase + PktTimestamp + TsbpdDelay + Drift$$
 
 ---
 
-# [fit] Quiz 3: Starts from with is too late ?
+# [fit] Quiz 3: Which delivery is too late ?
 [.build-lists: true]
 
 
@@ -385,7 +385,7 @@ $$PktTsbpdTime = TsbpdTimeBase + PktTimestamp + TsbpdDelay + Drift$$
 ---- 
 ![original](background.png)
 
-# What problem did we encounter switching SRT
+# What problems did we overcome to switch to SRT
 
 - Variable tuning
 - Unmaintained publisher client library
