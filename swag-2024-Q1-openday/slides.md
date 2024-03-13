@@ -4,7 +4,10 @@ build-lists: false
 
 # [fit] Go download **demo** resource.
 
+https://tinyurl.com/2024-q1-swag-openday-setup
+
 ![inline](setup-instruction.png)
+
 
 ---
 
@@ -12,6 +15,14 @@ build-lists: false
 
 ---
 ![inline](livestream-protocols-history.png)
+
+^
+RTMP: 1996
+WebRTC: 2011
+FTL: 2016 - 2020
+SRT: 2017
+Enhanced RTMP: 2022
+
 
 ---
 ![original](background.png)
@@ -35,6 +46,9 @@ build-lists: false
     - audio: AAC
 - Latency (3 ~ 5s)
 - RTMP still supported on many platform as publish protocol even though flash player is offically dead.
+
+^
+TCP focus on reliability over latency, it ensure packet arrive sequentially, this overhead introduce higher latency.
     
 ---
 ![original](background.png)
@@ -212,13 +226,13 @@ $$PktTsbpdTime = TsbpdTimeBase + PktTimestamp + TsbpdDelay + Drift$$
 
 ---
 
-| Packet Delivery Time | Serial Number | Pkt Timestamp | Time Base | SRT Latency | Drift |
+|  Serial Number | Pkt Timestamp | Time Base | SRT Latency | Drift |Packet Delivery Time |
 |----------------------|---------------|---------------|-----------|-------------|-------|
-| 180                  | 1             | 20            | 40        | 120         | 0     |
-| 200                  | 2             | 40            | 40        | 120         | 0     |
-| 220                  | 3             | 60            | 40        | 120         | 0     |
-| 240                  | 4             | 80            | 40        | 120         | 0     |
-| 260                  | 5             | 100           | 40        | 120         | 0     |
+| 1             | 20            | 40        | 120         | 0     | 180                  |
+| 2             | 40            | 40        | 120         | 0     | 200                  |
+| 4             | 80            | 40        | 120         | 0     | 240                  |
+| 5             | 100           | 40        | 120         | 0     | 260                  |
+| 3             | 60            | 40        | 120         | 0     | 220                  |
 
 
 ^ 想像Receiver 端收到1~5 packate, 計算Packet Delivery Time 的範例。
@@ -227,13 +241,13 @@ $$PktTsbpdTime = TsbpdTimeBase + PktTimestamp + TsbpdDelay + Drift$$
 [.build-lists: true]
 # [fit] Quiz 2: packet delivery time 
 
-| Packet Delivery Time | Serial Number | Pkt Timestamp | Time Base | SRT Latency | Drift |
+| Serial Number | Pkt Timestamp | Time Base | SRT Latency | Drift | Packet Delivery Time |
 |----------------------|---------------|---------------|-----------|-------------|-------|
-| ???                  | 6             | 120           | 40        | 120         | 0     |
-| ???                  | 7             | 140           | 40        | 120         | 0     |
+| 6             | 120           | 40        | 120         | 0     | ???                  |
+| 7             | 140           | 40        | 120         | 0     | ???                  |
 
-- 6: 00:00:00,280
-- 7: 00:00:00,300
+- 6: 280
+- 7: 300
 
 
 ---
@@ -277,11 +291,16 @@ $$PktTsbpdTime = TsbpdTimeBase + PktTimestamp + TsbpdDelay + Drift$$
 ^ 假設這是一個sender 的 buffer, 哪些packet too late ?
 
 ---
+
+![inline](srt-too-late-example.png)
+
+---
+
 # [fit] Quiz 3: Starts from with is too late ?
 [.build-lists: true]
 
 
-| Time | Serial Number    | PktTimestamp | Is Too Late |
+| Now | Serial Number    | PktTimestamp | Is Too Late |
 |------|------------------|--------------|-------------|
 | 140  | 3                | 60           | ?           |
 | 160  | 3 (retransmit-1) | 60           | ?           |
@@ -293,6 +312,10 @@ $$PktTsbpdTime = TsbpdTimeBase + PktTimestamp + TsbpdDelay + Drift$$
 
 ^ 怎麼算？ Time - 125 < 60
  Time < 185 is not too late
+
+---
+![inline](srt-too-late-quiz.png)
+
 
 ---
 # What protocol do we use, why ?
