@@ -11,6 +11,9 @@ build-lists: false
 ![fit](cover.png)
 
 ---
+![inline](livestream-protocols-history.png)
+
+---
 ![original](background.png)
 
 # Outline
@@ -19,10 +22,6 @@ build-lists: false
 - What protocol are we use, why ?
 - DEMO
 
----
-[.footer: https://www.wowza.com/blog/history-of-streaming-media]
-
-![inline](livestream-protocols-history.png)
 
 
 ---
@@ -60,7 +59,7 @@ build-lists: false
 ![original](background.png)
 
 # WebRTC
-
+- It's a **framework** in combination of protocols and JS APIs.
 - **UDP** (default) and **TCP** (TURN)
 - Supported codecs:
     - video: VP8, VP9, H.264 (H.265, AV1 ... in progress)
@@ -69,6 +68,11 @@ build-lists: false
 - Products: Discord [^2] ,Google meet
 
 [^2]: [Discord blog discribe their webRTC architecture](https://discord.com/blog/how-discord-handles-two-and-half-million-concurrent-voice-users-using-webrtc)
+
+^ 
+Webrtc
+- protocols: ICE, SDP, DTLS
+- APIs: allow web developers to integrate real-time communication features.
 
 ---
 [.build-lists: true]
@@ -182,6 +186,7 @@ the responsibility of encoding/decoding fall on upstream/downstream app using SR
 
 --- 
 # Correct order of packets matters
+[.footer: https://qiita.com/tomoyafujita/items/2e10a9b9d463a36d4a3e]
 ![inline](srt-decoder-worst-nightmare.png) ![inline](srt-happy-decoder.png)
 
 
