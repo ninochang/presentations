@@ -30,7 +30,7 @@ Enhanced RTMP: 2022
 # Outline
 - RTMP vs WebRTC vs SRT :arrow_backward:
 - Deep dive into SRT
-- What protocol are we use, why ?
+- What protocol are we using and why ?
 - DEMO
 
 ---
@@ -185,7 +185,7 @@ the responsibility of encoding/decoding fall on upstream/downstream app using SR
 # Outline
 - RTMP vs WebRTC vs SRT :white_check_mark:
 - Deep dive into SRT :arrow_backward:
-- What protocol are we use, why ?
+- What protocol are we using and why ?
 - DEMO
 
 ---
@@ -360,7 +360,7 @@ $$PktTsbpdTime = TsbpdTimeBase + PktTimestamp + TsbpdDelay + Drift$$
 # Outline
 - RTMP vs WebRTC vs SRT :white_check_mark:
 - Deep dive into SRT :white_check_mark:
-- What protocol are we use, why ? :arrow_backward:
+- What protocol are we using and why ? :arrow_backward:
 - DEMO
 
 ---
