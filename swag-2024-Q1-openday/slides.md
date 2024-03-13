@@ -17,7 +17,7 @@ https://tinyurl.com/2024-q1-swag-openday-setup
 ![inline](livestream-protocols-history.png)
 
 ^
-RTMP: 1996
+RTMP: 1996, include RTMPS
 WebRTC: 2011
 FTL: 2016 - 2020
 SRT: 2017
@@ -55,7 +55,7 @@ TCP focus on reliability over latency, it ensure packet arrive sequentially, thi
 
 # RTMP - Summary
 - Pros:
-    - High device compatibility
+    - High platform/encoder compatibility
     - Low resource usage since TCP took care of packets ordering.
 - Cons:
     - Old codecs[^1]
@@ -135,8 +135,8 @@ Webrtc
 - **UDP** based
 - Supported codec: Codec agnostic
 - Latency: (< 500ms)
-- Loss packet handling: FEC, ARQ, Too-late packet
 - Timestamp-Based Packet Delivery (TSBPD), optimize decoder performance.
+- Loss packet handling: FEC, ARQ, Too-late packet
 
 ---
 [.build-lists: true]
@@ -168,7 +168,7 @@ the responsibility of encoding/decoding fall on upstream/downstream app using SR
 |----------------------|-------------|------------------------------------------------|----------------|
 | Supported Codecs     | H.264, AAC  | H.264, VP9, VP8, Opus, G.711 G.722, iLBC, iSAC | Unlimited      |
 | Latency              | < 5s        | < 500ms                                        | < 500ms        |
-| Security             | RTMPS/RTMPE | Built in (DTLS, SRTP)                          | Built in (AES) |
+| Security             | RTMPS | Built in (DTLS, SRTP)                          | Built in (AES) |
 | Disruption Tolerance | Average     | Good                                           | Good           |
 
 
@@ -189,6 +189,7 @@ the responsibility of encoding/decoding fall on upstream/downstream app using SR
 ![inline](srt-tsbpd.png)
 
 ^ 每個packet都會有serial number
+- 這邊要帶到Packet Delivery Time.
 
 ---
 [.build-lists: true]
@@ -372,6 +373,12 @@ $$PktTsbpdTime = TsbpdTimeBase + PktTimestamp + TsbpdDelay + Drift$$
 ---
 ![original](background.png)
 
+# [fit] **DEMO**
+
+
+---
+![original](background.png)
+
 # RTMP References:
 - https://www.wowza.com/blog/history-of-streaming-media
 - https://ossrs.net/lts/zh-cn/docs/v5/doc/rtmp
@@ -393,7 +400,4 @@ $$PktTsbpdTime = TsbpdTimeBase + PktTimestamp + TsbpdDelay + Drift$$
 - https://github.com/Haivision/srt-rfc/blob/main/notes/notes_data_transmission.md
 
 
----
-![original](background.png)
 
-# DEMO
