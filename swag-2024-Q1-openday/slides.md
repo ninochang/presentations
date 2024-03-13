@@ -28,12 +28,10 @@ Enhanced RTMP: 2022
 ![original](background.png)
 
 # Outline
-- RTMP vs WebRTC vs SRT
+- RTMP vs WebRTC vs SRT :arrow_backward:
 - Deep dive into SRT
 - What protocol are we use, why ?
 - DEMO
-
-
 
 ---
 [.build-lists: false]
@@ -48,7 +46,8 @@ Enhanced RTMP: 2022
 - RTMP still supported on many platform as publish protocol even though flash player is offically dead.
 
 ^
-TCP focus on reliability over latency, it ensure packet arrive sequentially, this overhead introduce higher latency.
+- TCP focus on reliability over latency, it ensure packet arrive sequentially, this overhead introduce higher latency.
+- Mention TCP head of line block.
     
 ---
 ![original](background.png)
@@ -179,6 +178,35 @@ the responsibility of encoding/decoding fall on upstream/downstream app using SR
 
 - video: H.264
 - audio: AAC
+
+---
+![original](background.png)
+
+# Outline
+- RTMP vs WebRTC vs SRT :white_check_mark:
+- Deep dive into SRT :arrow_backward:
+- What protocol are we use, why ?
+- DEMO
+
+---
+# [fit] real world Comparison video RTMP vs SRT
+- Publisher: iPhone 14pro / Larix, 台哥大5G.
+- Playback: VLC playing HLS manifest.
+
+---
+# Elevator
+
+SRT vs RTMP
+
+![inline](srt-elevator.mov)
+
+
+---
+# Underground
+
+SRT vs RTMP
+
+![inline](srt-underground.mov)
 
 ---
 # [fit] Deep dive into
@@ -327,7 +355,17 @@ $$PktTsbpdTime = TsbpdTimeBase + PktTimestamp + TsbpdDelay + Drift$$
 ![inline](srt-too-late-quiz-1.png)
 
 ---
-# what protocol are we using and why
+![original](background.png)
+
+# Outline
+- RTMP vs WebRTC vs SRT :white_check_mark:
+- Deep dive into SRT :white_check_mark:
+- What protocol are we use, why ? :arrow_backward:
+- DEMO
+
+---
+# [fit] **What** protocol are we using
+# [fit] and **why**
 
 ---
 ![original](background.png)
@@ -343,22 +381,6 @@ $$PktTsbpdTime = TsbpdTimeBase + PktTimestamp + TsbpdDelay + Drift$$
 
 - SRT is more stable under bad internet.
 - Better support for codecs
-
----
-# [fit] real world Comparison video RTMP vs SRT
-- Publisher: iPhone 14pro / Larix, 台哥大5G.
-- Playback: VLC playing HLS manifest.
-
----
-# Elevator
-
-![inline](srt-elevator.mov)
-
-
----
-# Underground
-
-![inline](srt-underground.mov)
 
 ---- 
 ![original](background.png)
@@ -376,6 +398,15 @@ $$PktTsbpdTime = TsbpdTimeBase + PktTimestamp + TsbpdDelay + Drift$$
 - Unstable connection due to a hard coded 5 seconds wait time within downstream ingestion.
 - Streampack (android), SRTHaishinKit(ios) is haivision wrapper.
 - Stream filter is hook on library, need to hook on each library.
+
+---
+![original](background.png)
+
+# Outline
+- RTMP vs WebRTC vs SRT :white_check_mark:
+- Deep dive into SRT :white_check_mark:
+- What protocol are we use, why ? :white_check_mark:
+- DEMO :arrow_backward:
 
 
 ---
@@ -410,5 +441,4 @@ $$PktTsbpdTime = TsbpdTimeBase + PktTimestamp + TsbpdDelay + Drift$$
 
 
 --- 
-- Show srt and rtmp caption under video 
-- Recap outline
+- Mention TCP head of line block.
