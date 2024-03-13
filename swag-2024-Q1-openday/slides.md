@@ -77,7 +77,7 @@ TCP focus on reliability over latency, it ensure packet arrive sequentially, thi
 - **UDP** (default) and **TCP** (TURN)
 - Supported codecs:
     - video: VP8, VP9, H.264 (H.265, AV1 ... in progress)
-    - audio: Opus (... inprogress)
+    - audio: Opus (... in progress)
 - Latency (< 500ms)
 - Products: Discord [^2] ,Google meet
 
@@ -315,11 +315,19 @@ $$PktTsbpdTime = TsbpdTimeBase + PktTimestamp + TsbpdDelay + Drift$$
  Time < 185 is not too late
 
 ---
-![inline](srt-too-late-quiz.png)
-
+![inline](srt-too-late-quiz-4.png)
 
 ---
-# What protocol do we use, why ?
+![inline](srt-too-late-quiz-3.png)
+
+---
+![inline](srt-too-late-quiz-2.png)
+
+---
+![inline](srt-too-late-quiz-1.png)
+
+---
+# what protocol are we using and why
 
 ---
 ![original](background.png)
@@ -334,10 +342,10 @@ $$PktTsbpdTime = TsbpdTimeBase + PktTimestamp + TsbpdDelay + Drift$$
 # Why we switch to SRT
 
 - SRT is more stable under bad internet.
-- Lack of newer codecs support
+- Better support for codecs
 
 ---
-# [fit] Real World Compareison video RTMP vs SRT.
+# [fit] real world Comparison video RTMP vs SRT
 - Publisher: iPhone 14pro / Larix, 台哥大5G.
 - Playback: VLC playing HLS manifest.
 
@@ -401,3 +409,6 @@ $$PktTsbpdTime = TsbpdTimeBase + PktTimestamp + TsbpdDelay + Drift$$
 
 
 
+--- 
+- Show srt and rtmp caption under video 
+- Recap outline
