@@ -383,19 +383,15 @@ $$PktTsbpdTime = TsbpdTimeBase + PktTimestamp + TsbpdDelay + Drift$$
 ---- 
 ![original](background.png)
 
-# What problems did we overcome to switch to SRT
+# **Challenges** when switching to **SRT**
 
-- Variable tuning
-- Unmaintained publisher client library
+- Required variable tuning
+- Cloud routing behavior for UDP
 
-^ Limited SRT resource
-- iOS client side library
-    - Memory, resource management wasn't optimal.
-    - Stale `libsrt` version
-    - Had to patch the package ourselves.
-- Unstable connection due to a hard coded 5 seconds wait time within downstream ingestion.
-- Streampack (android), SRTHaishinKit(ios) is haivision wrapper.
-- Stream filter is hook on library, need to hook on each library.
+^
+- Required variable tuning
+    - SRT latency
+    - Max Bandwidth
 
 ---
 ![original](background.png)
