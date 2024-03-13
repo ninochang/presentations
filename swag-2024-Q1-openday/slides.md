@@ -163,13 +163,12 @@ the responsibility of encoding/decoding fall on upstream/downstream app using SR
 ---
 ![original](background.png)
 
-| Protocol             | RTMP        | WebRTC                                         | SRT            |
-|----------------------|-------------|------------------------------------------------|----------------|
-| Supported Codecs     | H.264, AAC  | H.264, VP9, VP8, Opus, G.711 G.722, iLBC, iSAC | Unlimited      |
-| Latency              | < 5s        | < 500ms                                        | < 500ms        |
-| Security             | RTMPS | Built in (DTLS, SRTP)                          | Built in (AES) |
-| Disruption Tolerance | Average     | Good                                           | Good           |
-
+| Protocol             | RTMP       | WebRTC                                         | SRT            |
+|----------------------|------------|------------------------------------------------|----------------|
+| Supported Codecs     | H.264, AAC | H.264, VP9, VP8, Opus, G.711 G.722, iLBC, iSAC | Unlimited      |
+| Latency              | < 5s       | < 500ms                                        | < 500ms        |
+| Security             | RTMPS      | Built in (DTLS, SRTP)                          | Built in (AES) |
+| Disruption Tolerance | Average    | Good                                           | Good           |
 
 ---
 [.build-lists: true]
@@ -254,9 +253,8 @@ $$PktTsbpdTime = TsbpdTimeBase + PktTimestamp + TsbpdDelay + Drift$$
 - $$Drift$$ : Adjust the fluctuations between sender and receiver clock.
 
 ---
-
-|  Serial Number | Pkt Timestamp | Time Base | SRT Latency | Drift |Packet Delivery Time |
-|----------------------|---------------|---------------|-----------|-------------|-------|
+| Serial Number | Pkt Timestamp | Time Base | SRT Latency | Drift | Packet Delivery Time |
+|---------------|---------------|-----------|-------------|-------|----------------------|
 | 1             | 20            | 40        | 120         | 0     | 180                  |
 | 2             | 40            | 40        | 120         | 0     | 200                  |
 | 4             | 80            | 40        | 120         | 0     | 240                  |
@@ -271,7 +269,7 @@ $$PktTsbpdTime = TsbpdTimeBase + PktTimestamp + TsbpdDelay + Drift$$
 # [fit] Quiz 2: packet delivery time 
 
 | Serial Number | Pkt Timestamp | Time Base | SRT Latency | Drift | Packet Delivery Time |
-|----------------------|---------------|---------------|-----------|-------------|-------|
+|---------------|---------------|-----------|-------------|-------|----------------------|
 | 6             | 120           | 40        | 120         | 0     | ???                  |
 | 7             | 140           | 40        | 120         | 0     | ???                  |
 
