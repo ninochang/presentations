@@ -161,6 +161,10 @@ the responsibility of encoding/decoding fall on upstream/downstream app using SR
     - Require extra bandwidth for SRT machanism maintain stream quality.
 
 ---
+# [fit] Why there's limitation for codec ?
+- 
+
+---
 ![original](background.png)
 
 | Protocol             | RTMP       | WebRTC                                         | SRT            |
