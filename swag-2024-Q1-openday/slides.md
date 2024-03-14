@@ -416,6 +416,138 @@ $$PktTsbpdTime = TsbpdTimeBase + PktTimestamp + TsbpdDelay + Drift$$
 ---
 ![original](background.png)
 
+# Workshop
+- Push stream - *OBS* :arrow_backward:
+- Watch stream - *VLC* 
+- Network tempering
+
+---
+Click *+*
+
+![inline](workshop-1-a-i.png)
+
+---
+Click *媒體來源*
+
+![inline](workshop-1-a-ii.png)
+
+---
+Click *確定*
+
+![inline](workshop-1-a-iii.png)
+
+---
+Click *瀏覽* to select the video, enable *循環* and click *確定*
+
+![inline](workshop-1-a-iv.png)
+
+---
+Click *設定檔* and *匯入*
+
+![inline](workshop-1-b-ii.png)
+
+---
+Select the *swagconfig* folder and click *open* 
+
+![inline](workshop-1-b-iii.png)
+
+---
+Click *設定檔* and select *swag-config*
+
+![inline](workshop-1-b-iv.png)
+
+---
+Click *設定*
+
+![inline](workshop-1-b-v.png)
+
+---
+Click *串流* and set [服務] to *自訂...* and [伺服器] to *the copied connection string*, then click *確定*
+
+![inline](workshop-1-b-vi.png)
+
+---
+Start streaming
+
+![inline](workshop-1-c.png)
+
+---
+# Workshop
+- Push stream - `OBS` :white_check_mark:
+- Watch stream - `VLC` :arrow_backward: 
+- Network tempering
+
+---
+Start streaming
+
+![inline](workshop-1-c.png)
+
+---
+Click *File* and select *Open Network*
+
+![inline](workshop-2-a.png)
+
+---
+Copy and paste *stream url* , and click *Open*
+
+![inline](workshop-2-b.png)
+
+---
+# Workshop
+- Push stream - `OBS` :white_check_mark:
+- Watch stream - `VLC` :white_check_mark:
+- Network tempering :arrow_backward:
+
+---
+Open *setting*
+
+![inline](workshop-3-a-i.png)
+
+---
+Select *Network Link Conditioner* on the left side
+
+![inline](workshop-3-a-ii.png)
+
+---
+Click *Mange Profiles*
+
+![inline](workshop-3-a-iii.png)
+
+---
+Click *+* to add custom profile
+
+![inline](workshop-3-a-iv.png)
+
+---
+Enter a name, and click *Create*
+
+![inline](workshop-3-a-v.png)
+
+---
+Uplink bandwidth: *10Mbps*
+Uplink Packets Dropped: *1 %*
+
+![inline](workshop-3-a-vi.png)
+
+---
+Turn *ON* to start network controlling
+
+![inline](workshop-3-a-vii.png)
+
+---
+Windows - *clumsy*
+
+![inline](workshop-3-b.png)
+
+---
+# Workshop
+- Push stream - `OBS` :white_check_mark:
+- Watch stream - `VLC` :white_check_mark:
+- Network tempering :white_check_mark:
+
+---
+![original](background.png)
+
 # RTMP References:
 - https://www.wowza.com/blog/history-of-streaming-media
 - https://ossrs.net/lts/zh-cn/docs/v5/doc/rtmp
@@ -436,7 +568,3 @@ $$PktTsbpdTime = TsbpdTimeBase + PktTimestamp + TsbpdDelay + Drift$$
 - https://qiita.com/tomoyafujita/items/2e10a9b9d463a36d4a3e
 - https://github.com/Haivision/srt-rfc/blob/main/notes/notes_data_transmission.md
 
-
-
---- 
-- Mention TCP head of line block.
