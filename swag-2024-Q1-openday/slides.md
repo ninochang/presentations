@@ -61,7 +61,7 @@ Enhanced RTMP: 2022
 ---
 ![original](background.png)
 
-# RTMP - Summary
+# RTMP - Pros & Cons
 - Pros:
     - High platform/encoder compatibility
     - Low resource usage since TCP took care of packets ordering.
@@ -99,7 +99,7 @@ Webrtc
 ---
 ![original](background.png)
 
-# WebRTC - Summary
+# WebRTC - Pros & Cons
 
 - Pros:
     - High stability under bad network conditions (Adaptive Bitrate Control, FEC, NACK)
@@ -128,7 +128,7 @@ Webrtc
 ---
 ![original](background.png)
 
-# SRT - Summary
+# SRT - Pros & Cons
 
 - Pros:
     - Codec agnostic.
