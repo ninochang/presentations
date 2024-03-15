@@ -91,17 +91,6 @@ Webrtc
 [.build-lists: true]
 
 ![original](background.png)
-
-# Why WebRTC is not codec agnostic ?
-- Relies codecs to be supported by underlying browser.
-- Browsers don't support specific codecs for various reasons, like expensive license to use H.265.
-- Hardware acceleration requirement for some codecs like H.265, AV1 
-(But newer chrome starts support hardware acceleration)
-
----
-[.build-lists: true]
-
-![original](background.png)
 # How does WebRTC handle packet loss ?
 - Forward Error Correction (FEC): Add **redundant information** to the transmitted packets, Allowing receiver to **reconstruct** lost packets even if they are not received.
 
@@ -138,16 +127,6 @@ Webrtc
 - Loss packet handling: FEC, ARQ, Too-late packet
 
 ---
-[.build-lists: true]
-
-![original](background.png)
-
-# Why SRT codec agnostic ?
-- It doesn't have any codecs limitation on data processing, 
-the responsibility of encoding/decoding fall on upstream/downstream app using SRT.
-- Acts as a normal udp packet that wraps SRT content.
-
----
 ![original](background.png)
 
 # SRT - Summary
@@ -161,8 +140,34 @@ the responsibility of encoding/decoding fall on upstream/downstream app using SR
     - Require extra bandwidth for SRT machanism maintain stream quality.
 
 ---
+[.build-lists: true]
 # [fit] Why there's limitation for codec ?
-- 
+RTMP
+
+- Was developed alongside Flash, which heavily utilized FLV for video playback
+- FLV use h.265, aac 
+
+
+---
+[.build-lists: true]
+# [fit] Why there's limitation for codec ?
+WebRTC
+
+- Relies codecs to be supported by underlying browser.
+- Browsers don't support specific codecs for various reasons, like expensive license to use H.265.
+- Hardware acceleration requirement for some codecs like H.265, AV1 
+(But newer chrome starts support hardware acceleration)
+
+---
+[.build-lists: true]
+# [fit] Why there's limitation for codec ?
+
+SRT
+
+- It doesn't have any codecs limitation on data processing, 
+the responsibility of encoding/decoding fall on upstream/downstream app using SRT.
+- Acts as a normal udp packet that wraps SRT content.
+
 
 ---
 ![original](background.png)
