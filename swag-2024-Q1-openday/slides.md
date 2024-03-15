@@ -202,10 +202,17 @@ the responsibility of encoding/decoding fall on upstream/downstream app using SR
 
 ---
 ![original](background.png)
-# Why we select RTMP over WebRTC at very beginning
+# Publish protocol we used
+- RTMP: 2020 ~ Now
+- SRT:  2023.11 ~ Now
 
-- WebRTC scenario is for peer to peer, ours are broadcast.
+---
+![original](background.png)
+# Why we select RTMP at the very beginning
+
 - RTMP is broadly support by community, sufficient resource.
+- WebRTC scenario is for peer to peer, ours are broadcast.
+- SRT support was limited
 
 -----
 ![original](background.png)
@@ -213,7 +220,7 @@ the responsibility of encoding/decoding fall on upstream/downstream app using SR
 # Why we switch to SRT
 
 - SRT is more stable under bad internet.
-- Better support for codecs
+- Better support for new codecs
 
 ---
 # [fit] real world Comparison video RTMP vs SRT
@@ -263,6 +270,13 @@ SRT vs RTMP
 ![inline](srt-decoder-worst-nightmare.png) ![inline](srt-happy-decoder.png)
 
 ---
+[.footer: https://qiita.com/tomoyafujita/items/2e10a9b9d463a36d4a3e]
+![inline](srt-tsbpd.png)
+
+^ 每個packet都會有serial number
+- 這邊要帶到Packet Delivery Time.
+
+---
 [.build-lists: true]
 # Packet Delivery Time
 
@@ -296,15 +310,6 @@ $$PktTsbpdTime = TsbpdTimeBase + PktTimestamp + TsbpdDelay + Drift$$
 
 - 6: 280
 - 7: 300
-
-
----
-[.footer: https://qiita.com/tomoyafujita/items/2e10a9b9d463a36d4a3e]
-![inline](srt-tsbpd.png)
-
-^ 每個packet都會有serial number
-- 這邊要帶到Packet Delivery Time.
-
 
 ---
 # [fit] Deep dive into **SRT**
