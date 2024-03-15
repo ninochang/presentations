@@ -8,6 +8,8 @@ https://tinyurl.com/2024-q1-swag-openday-setup
 
 ![inline](setup-instruction.png)
 
+SWAG - Guest
+password: *helloswag*
 
 ---
 
@@ -53,8 +55,7 @@ Enhanced RTMP: 2022
 - Latency (3 ~ 5s)
 - RTMP still supported on many platform as publish protocol even though flash player is offically dead.
 
-^
-- TCP focus on reliability over latency, it ensure packet arrive sequentially, this overhead introduce higher latency.
+^- TCP focus on reliability over latency, it ensure packet arrive sequentially, this overhead introduce higher latency.
 - Mention TCP head of line block.
     
 ---
@@ -90,8 +91,7 @@ Enhanced RTMP: 2022
 
 [^2]: [Discord blog discribe their webRTC architecture](https://discord.com/blog/how-discord-handles-two-and-half-million-concurrent-voice-users-using-webrtc)
 
-^ 
-Webrtc
+^Webrtc
 - protocols: ICE, SDP, DTLS
 - APIs: allow web developers to integrate real-time communication features.
 
@@ -109,8 +109,7 @@ Webrtc
     - Hard to scale when there's multiple participants
     
 
-^ 
-- Adaptive Bitrate Control: 依照網路狀況動態調整encode bitrate.
+^ - Adaptive Bitrate Control: 依照網路狀況動態調整encode bitrate.
 [Datagram Transport Layer Security](https://datatracker.ietf.org/doc/html/rfc6347)
 [Secure Real-Time Transport Protocol](https://datatracker.ietf.org/doc/html/rfc3711)
 
@@ -227,17 +226,13 @@ the responsibility of encoding/decoding fall on upstream/downstream app using SR
 - Playback: VLC playing HLS manifest.
 
 ---
-# Elevator
-
-SRT vs RTMP
+# Elevator - SRT vs RTMP
 
 ![inline](srt-elevator.mov)
 
 
 ---
-# Underground
-
-SRT vs RTMP
+# Underground - SRT vs RTMP
 
 ![inline](srt-underground.mov)
 
@@ -435,8 +430,7 @@ Forward Error Correction (FEC):
 - Required variable tuning
 - Cloud routing behavior for UDP
 
-^
-- Required variable tuning
+^- Required variable tuning
     - SRT latency
     - Max Bandwidth
 
@@ -520,11 +514,6 @@ Start streaming
 - Network tempering
 
 ---
-Start streaming
-
-![inline](workshop-1-c.png)
-
----
 Click *File* and select *Open Network*
 
 ![inline](workshop-2-a.png)
@@ -586,7 +575,7 @@ Presets: *all sending packets*
 Drop: *1%* for outbound
 Bandwidth: *768 KB/s* for outbound (equals to *6 Mb/s*)( 768 * 8 / 1024 = 6)
 
-![inline](workshop-3-b-i.png)
+![inline](workshop-3-b-ii.png)
 
 ---
 # Workshop
