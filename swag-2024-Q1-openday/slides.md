@@ -16,8 +16,7 @@ https://tinyurl.com/2024-q1-swag-openday-setup
 ---
 ![inline](livestream-protocols-history.png)
 
-^
-RTMP: 1996, include RTMPS
+^RTMP: 1996, include RTMPS
 WebRTC: 2011
 FTL: 2016 - 2020
 SRT: 2017
