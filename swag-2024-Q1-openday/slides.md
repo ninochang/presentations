@@ -578,9 +578,16 @@ Turn *ON* to start network controlling
 ![inline](workshop-3-a-vii.png)
 
 ---
-Windows - *clumsy*
+Windows - open *clumsy*
 
-![inline](workshop-3-b.png)
+![inline](workshop-3-b-i.png)
+
+---
+Presets: *all sending packets*
+Drop: *1%* for outbound
+Bandwidth: *768 KB/s* for outbound (equals to *6 Mb/s*)( 768 * 8 / 1024 = 6)
+
+![inline](workshop-3-b-i.png)
 
 ---
 # Workshop
