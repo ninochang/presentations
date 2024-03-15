@@ -23,6 +23,15 @@ FTL: 2016 - 2020
 SRT: 2017
 Enhanced RTMP: 2022
 
+---
+![original](background.png)
+
+# Outline
+- RTMP vs WebRTC vs SRT
+- Deep dive into SRT
+- What protocol are we using and why ?
+- DEMO
+
 
 ---
 ![original](background.png)
