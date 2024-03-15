@@ -28,8 +28,8 @@ Enhanced RTMP: 2022
 
 # Outline
 - RTMP vs WebRTC vs SRT
-- Deep dive into SRT
 - What protocol are we using and why ?
+- Deep dive into SRT
 - DEMO
 
 
@@ -38,8 +38,8 @@ Enhanced RTMP: 2022
 
 # Outline
 - RTMP vs WebRTC vs SRT :arrow_backward:
-- Deep dive into SRT
-- What protocol are we using and why ?
+- What protocol are we using and why ? 
+- Deep dive into SRT 
 - DEMO
 
 ---
@@ -102,7 +102,8 @@ Webrtc
 # WebRTC - Pros & Cons
 
 - Pros:
-    - High stability under bad network conditions (Adaptive Bitrate Control, FEC, NACK)
+    - High stability under bad network conditions
+        - Adaptive Bitrate Control, FEC, NACK
     - Strong Community support, works on almost every browser.
     - Strong security ensured by DTLS, SRTP
 - Cons:
@@ -191,9 +192,28 @@ the responsibility of encoding/decoding fall on upstream/downstream app using SR
 
 # Outline
 - RTMP vs WebRTC vs SRT :white_check_mark:
-- Deep dive into SRT :arrow_backward:
-- What protocol are we using and why ?
+- What protocol are we using and why ? :arrow_backward:
+- Deep dive into SRT
 - DEMO
+
+---
+# [fit] **What** protocol are we using
+# [fit] and **why**
+
+---
+![original](background.png)
+# Why we select RTMP over WebRTC at very beginning
+
+- WebRTC scenario is for peer to peer, ours are broadcast.
+- RTMP is broadly support by community, sufficient resource.
+
+-----
+![original](background.png)
+
+# Why we switch to SRT
+
+- SRT is more stable under bad internet.
+- Better support for codecs
 
 ---
 # [fit] real world Comparison video RTMP vs SRT
@@ -214,6 +234,13 @@ SRT vs RTMP
 SRT vs RTMP
 
 ![inline](srt-underground.mov)
+
+---
+# Outline
+- RTMP vs WebRTC vs SRT :white_check_mark:
+- What protocol are we using and why ? :white_check_mark:
+- Deep dive into SRT :arrow_backward:
+- DEMO
 
 ---
 # [fit] Deep dive into **SRT**
@@ -396,32 +423,6 @@ Forward Error Correction (FEC):
 - Handle loss packet :white_check_mark:
 - Too late packet :white_check_mark:
 
----
-# Outline
-- RTMP vs WebRTC vs SRT :white_check_mark:
-- Deep dive into SRT :white_check_mark:
-- What protocol are we using and why ? :arrow_backward:
-- DEMO
-
----
-# [fit] **What** protocol are we using
-# [fit] and **why**
-
----
-![original](background.png)
-# Why we select RTMP over WebRTC at very beginning
-
-- WebRTC scenario is for peer to peer, ours are broadcast.
-- RTMP is broadly support by community, sufficient resource.
-
------
-![original](background.png)
-
-# Why we switch to SRT
-
-- SRT is more stable under bad internet.
-- Better support for codecs
-
 ---- 
 ![original](background.png)
 
@@ -440,10 +441,9 @@ Forward Error Correction (FEC):
 
 # Outline
 - RTMP vs WebRTC vs SRT :white_check_mark:
-- Deep dive into SRT :white_check_mark:
 - What protocol are we use, why ? :white_check_mark:
+- Deep dive into SRT :white_check_mark:
 - DEMO :arrow_backward:
-
 
 ---
 ![original](background.png)
