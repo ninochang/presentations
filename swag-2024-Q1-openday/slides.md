@@ -88,32 +88,22 @@ Webrtc
 - APIs: allow web developers to integrate real-time communication features.
 
 ---
-[.build-lists: true]
-
-![original](background.png)
-# How does WebRTC handle packet loss ?
-- Forward Error Correction (FEC): Add **redundant information** to the transmitted packets, Allowing receiver to **reconstruct** lost packets even if they are not received.
-
-- NACK: Notify sender to retransmit missing packets and fill in the gaps to maintain playback continuity.
-
-- Adaptive Bitrate Control: Dynamically adjust the bitrate of the transmitted media stream based on network conditions.
-
----
 ![original](background.png)
 
 # WebRTC - Summary
 
 - Pros:
-    - High stability under bad network conditions
+    - High stability under bad network conditions (Adaptive Bitrate Control, FEC, NACK)
     - Strong Community support, works on almost every browser.
-    - Strong security ensured by DTLS[^3], SRTP[^4]
+    - Strong security ensured by DTLS, SRTP
 - Cons:
     - Hard to scale when there's multiple participants
     
 
-[^3]: [Datagram Transport Layer Security](https://datatracker.ietf.org/doc/html/rfc6347)
-
-[^4]: [Secure Real-Time Transport Protocol](https://datatracker.ietf.org/doc/html/rfc3711)
+^ 
+- Adaptive Bitrate Control: 依照網路狀況動態調整encode bitrate.
+[Datagram Transport Layer Security](https://datatracker.ietf.org/doc/html/rfc6347)
+[Secure Real-Time Transport Protocol](https://datatracker.ietf.org/doc/html/rfc3711)
 
 ---
 ![original](background.png)
@@ -217,15 +207,11 @@ SRT vs RTMP
 ![inline](srt-underground.mov)
 
 ---
-# [fit] Deep dive into
-# [fit]  **SRT**
+# [fit] Deep dive into **SRT**
 
----
-[.footer: https://qiita.com/tomoyafujita/items/2e10a9b9d463a36d4a3e]
-![inline](srt-tsbpd.png)
-
-^ 每個packet都會有serial number
-- 這邊要帶到Packet Delivery Time.
+- Timestamp-Based Packet Delivery :arrow_backward:
+- Handle loss packet
+- Too late packet
 
 ---
 [.build-lists: true]
@@ -239,16 +225,6 @@ SRT vs RTMP
 # Correct order of packets matters
 [.footer: https://qiita.com/tomoyafujita/items/2e10a9b9d463a36d4a3e]
 ![inline](srt-decoder-worst-nightmare.png) ![inline](srt-happy-decoder.png)
-
-
---- 
-[.build-lists: true]
-![original](background.png)
-
-# Automatic Repeat Request (ARQ)
-- Whenever receiver detects packet loss it send NACK to sender to trigger packet retransmission.
-- If packet still in sender's buffer and not determined too late, it will be schedule into queue for sending.
-- Periodically packet loss report.
 
 ---
 [.build-lists: true]
@@ -285,6 +261,49 @@ $$PktTsbpdTime = TsbpdTimeBase + PktTimestamp + TsbpdDelay + Drift$$
 - 6: 280
 - 7: 300
 
+
+---
+[.footer: https://qiita.com/tomoyafujita/items/2e10a9b9d463a36d4a3e]
+![inline](srt-tsbpd.png)
+
+^ 每個packet都會有serial number
+- 這邊要帶到Packet Delivery Time.
+
+
+---
+# [fit] Deep dive into **SRT**
+
+- Timestamp-Based Packet Delivery :white_check_mark:
+- Handle loss packet :arrow_backward:
+- Too late packet
+
+---
+[.build-lists: true]
+![original](background.png)
+
+# [fit] Handle loss packet
+Automatic Repeat Request (ARQ)
+
+- Whenever receiver detects packet loss it send NACK to sender to trigger packet retransmission.
+- If packet still in sender's buffer and not determined too late, it will be schedule into queue for sending.
+- Periodically packet loss report.
+
+---
+[.build-lists: true]
+![original](background.png)
+
+# [fit] Handle loss packet
+Forward Error Correction (FEC): 
+
+- Add *redundant information* to the transmitted packets, Allowing receiver to *reconstruct* lost packets even if they are not received.
+
+
+---
+# [fit] Deep dive into **SRT**
+
+- Timestamp-Based Packet Delivery :white_check_mark:
+- Handle loss packet :white_check_mark:
+- Too late packet :arrow_backward:
 
 ---
 [.footer: https://qiita.com/tomoyafujita/items/2e10a9b9d463a36d4a3e]
@@ -327,11 +346,9 @@ $$PktTsbpdTime = TsbpdTimeBase + PktTimestamp + TsbpdDelay + Drift$$
 ^ 假設這是一個sender 的 buffer, 哪些packet too late ?
 
 ---
-
 ![inline](srt-too-late-example.png)
 
 ---
-
 # [fit] Quiz 3: Which delivery is too late ?
 [.build-lists: true]
 
@@ -364,6 +381,13 @@ $$PktTsbpdTime = TsbpdTimeBase + PktTimestamp + TsbpdDelay + Drift$$
 ---
 ![original](background.png)
 
+# [fit] Deep dive into **SRT**
+
+- Timestamp-Based Packet Delivery :white_check_mark:
+- Handle loss packet :white_check_mark:
+- Too late packet :white_check_mark:
+
+---
 # Outline
 - RTMP vs WebRTC vs SRT :white_check_mark:
 - Deep dive into SRT :white_check_mark:
