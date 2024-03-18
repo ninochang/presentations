@@ -121,7 +121,7 @@ Enhanced RTMP: 2022
 - **UDP** based
 - Supported codec: Codec agnostic
 - Latency: (< 500ms)
-- Timestamp-Based Packet Delivery (TSBPD), optimize decoder performance.
+- Timestamp-Based Packet Delivery (TSBPD): Ensures correct packet ordering.
 - Loss packet handling: FEC, ARQ, Too-late packet
 
 ---
