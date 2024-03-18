@@ -135,7 +135,7 @@ Enhanced RTMP: 2022
     - Strong security ensured by built-in AES.
 - Cons:
     - Not support by native web, require special player.
-    - Require extra bandwidth for SRT machanism maintain stream quality.
+    - Require extra bandwidth for SRT mechanism maintain stream quality.
 
 ---
 [.build-lists: true]
