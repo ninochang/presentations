@@ -446,8 +446,16 @@ Forward Error Correction (FEC):
 ---
 ![original](background.png)
 
-# [fit] **DEMO**
+# DEMO - SRT vs. RTMP
 
+- Control Variables
+    - Output Video bitrate: 4 Mbps
+    - Output Audio bitrate: 192 Kbps
+    - Resolution: 1280 x 720
+    - FPS: 30
+    - Outbound bandwidth: 6 Mbps
+- Independent Variable
+    - Outbound Packet Loss Rate
 
 ---
 ![original](background.png)
