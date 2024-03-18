@@ -586,6 +586,11 @@ Bandwidth: *768 KB/s* for outbound (equals to *6 Mb/s*)( 768 * 8 / 1024 = 6)
 ![inline](workshop-3-b-ii.png)
 
 ---
+# [fit] How high can the
+# [fit] **packet loss rate** be
+# [fit] until the stream is unusable ?
+
+---
 # Workshop
 - Push stream - `OBS` :white_check_mark:
 - Watch stream - `VLC` :white_check_mark:
