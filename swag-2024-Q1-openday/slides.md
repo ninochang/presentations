@@ -103,7 +103,7 @@ Enhanced RTMP: 2022
 - Pros:
     - High stability under bad network conditions
         - Adaptive Bitrate Control, FEC, NACK
-    - Strong Community support, works on almost every browser.
+    - Strong community support, works on almost every browser.
     - Strong security ensured by DTLS, SRTP
 - Cons:
     - Hard to scale when there's multiple participants
@@ -139,11 +139,11 @@ Enhanced RTMP: 2022
 
 ---
 [.build-lists: true]
-# [fit] Why there's limitation for codec ?
+# [fit] Codec Limitations
 RTMP
 
 - Was developed alongside Flash, which heavily utilized FLV for video playback
-- FLV use h.265, aac 
+- FLV use h.264, aac 
 
 
 ---
@@ -206,10 +206,10 @@ the responsibility of encoding/decoding fall on upstream/downstream app using SR
 
 ---
 ![original](background.png)
-# Why we select RTMP at the very beginning
+# Why we chose RTMP at the very beginning
 
-- RTMP is broadly support by community, sufficient resource.
-- WebRTC scenario is for peer to peer, ours are broadcast.
+- RTMP is broadly supported by community, sufficient resource.
+- WebRTC scenario is mostly for peer to peer, ours scenario is broadcast.
 - SRT support was limited
 
 -----
@@ -221,7 +221,7 @@ the responsibility of encoding/decoding fall on upstream/downstream app using SR
 - Better support for new codecs
 
 ---
-# [fit] real world Comparison video RTMP vs SRT
+# [fit] Real World Comparisons: RTMP vs SRT
 - Publisher: iPhone 14pro / Larix, 台哥大5G.
 - Playback: VLC playing HLS manifest.
 
@@ -321,7 +321,7 @@ Automatic Repeat Request (ARQ)
 
 - Whenever receiver detects packet loss it send NACK to sender to trigger packet retransmission.
 - If packet still in sender's buffer and not determined too late, it will be schedule into queue for sending.
-- Periodically packet loss report.
+- Periodical packet loss report.
 
 ---
 [.build-lists: true]
