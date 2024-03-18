@@ -463,7 +463,7 @@ Forward Error Correction (FEC):
 # Workshop
 - Push stream - *OBS* :arrow_backward:
 - Watch stream - *VLC* 
-- Network tempering
+- Network conditioning
 
 ---
 Click *+*
@@ -519,7 +519,7 @@ Start streaming
 # Workshop
 - Push stream - `OBS` :white_check_mark:
 - Watch stream - `VLC` :arrow_backward: 
-- Network tempering
+- Network conditioning
 
 ---
 Click *File* and select *Open Network*
@@ -535,7 +535,7 @@ Copy and paste *stream url* , and click *Open*
 # Workshop
 - Push stream - `OBS` :white_check_mark:
 - Watch stream - `VLC` :white_check_mark:
-- Network tempering :arrow_backward:
+- Network conditioning :arrow_backward:
 
 ---
 Open *setting*
@@ -594,7 +594,7 @@ Bandwidth: *768 KB/s* for outbound (equals to *6 Mb/s*)( 768 * 8 / 1024 = 6)
 # Workshop
 - Push stream - `OBS` :white_check_mark:
 - Watch stream - `VLC` :white_check_mark:
-- Network tempering :white_check_mark:
+- Network conditioning :white_check_mark:
 
 ---
 ![original](background.png)
