@@ -165,7 +165,7 @@ SRT
 
 - It doesn't have any codecs limitation on data processing, 
 the responsibility of encoding/decoding fall on upstream/downstream app using SRT.
-- Acts as a normal udp packet that wraps SRT content.
+- Acts as a normal UDP packet that wraps SRT content.
 
 
 ---
