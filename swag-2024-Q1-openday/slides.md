@@ -260,7 +260,7 @@ the responsibility of encoding/decoding fall on upstream/downstream app using SR
 - Deliver the packet to encoder **at the right time**.
 
 --- 
-# Correct order of packets matters
+# Correct time of packets matters
 [.footer: https://qiita.com/tomoyafujita/items/2e10a9b9d463a36d4a3e]
 ![inline](srt-decoder-worst-nightmare.png) ![inline](srt-happy-decoder.png)
 
