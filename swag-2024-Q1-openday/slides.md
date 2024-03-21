@@ -257,10 +257,10 @@ the responsibility of encoding/decoding fall on upstream/downstream app using SR
 
 # Timestamp-Based Packet Delivery
 - Timestamps allow the receiver to **reorder** packets before handover to decoder.
-- Deliver the packet to encoder **at the right time**.
+- Deliver packets to encoder **at the right time**.
 
 --- 
-# Correct time of packets matters
+# The correct delivery time matters
 [.footer: https://qiita.com/tomoyafujita/items/2e10a9b9d463a36d4a3e]
 ![inline](srt-decoder-worst-nightmare.png) ![inline](srt-happy-decoder.png)
 
