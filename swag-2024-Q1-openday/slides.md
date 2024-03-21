@@ -15,6 +15,8 @@ password: *helloswag*
 
 ![fit](cover.png)
 
+^自我介紹，Nino 報告, WeiHsin Demo
+
 ---
 ![inline](livestream-protocols-history.png)
 
@@ -71,8 +73,7 @@ Enhanced RTMP: 2022
 
 [^1]: [RTMP Extended](https://github.com/veovera/enhanced-rtmp)
 
-^ 
-- Adobe stopped updating RTMP and didn't submit to RFC.
+^ - Adobe stopped updating RTMP and didn't submit to RFC.
 - 完全依賴 TCP 處理 loss packet, 容易在網路不穩情況受 congestion control 影響造成 delay.
 - Enhanced-RTMP support VP9, HEVC, and AV1[^Enhanced-RTMP]
 
@@ -172,7 +173,7 @@ the responsibility of encoding/decoding fall on upstream/downstream app using SR
 
 | Protocol             | RTMP       | WebRTC                                         | SRT            |
 |----------------------|------------|------------------------------------------------|----------------|
-| Supported Codecs     | H.264, AAC | H.264, VP9, VP8, Opus, G.711 G.722, iLBC, iSAC | Unlimited      |
+| Supported Codecs     | H.264, AAC | H.264, VP9, VP8, Opus | Unlimited      |
 | Latency              | < 5s       | < 500ms                                        | < 500ms        |
 | Security             | RTMPS      | Built in (DTLS, SRTP)                          | Built in (AES) |
 | Disruption Tolerance | Average    | Good                                           | Good           |
