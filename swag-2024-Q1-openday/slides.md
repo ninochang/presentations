@@ -149,7 +149,7 @@ RTMP
 
 ---
 [.build-lists: true]
-# [fit] Why there's limitation for codec ?
+# [fit] Codec Limitations
 WebRTC
 
 - Relies codecs to be supported by underlying browser.
@@ -159,7 +159,7 @@ WebRTC
 
 ---
 [.build-lists: true]
-# [fit] Why there's limitation for codec ?
+# [fit] Codec Limitations
 
 SRT
 
