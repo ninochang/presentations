@@ -55,7 +55,7 @@ Enhanced RTMP: 2022
     - video: H.264
     - audio: AAC
 - Latency (3 ~ 5s)
-- RTMP still supported on many platform as publish protocol even though flash player is offically dead.
+- RTMP is still supported on many platforms as a publishing protocol even though flash player is offically dead.
 
 ^- TCP focus on reliability over latency, it ensure packet arrive sequentially, this overhead introduce higher latency.
 - Mention TCP head of line block.
@@ -211,7 +211,7 @@ the responsibility of encoding/decoding fall on upstream/downstream app using SR
 
 - RTMP is broadly supported by community, sufficient resource.
 - WebRTC scenario is mostly for peer to peer, ours scenario is broadcast.
-- SRT support was limited
+- SRT support was limited.
 
 -----
 ![original](background.png)
@@ -219,7 +219,7 @@ the responsibility of encoding/decoding fall on upstream/downstream app using SR
 # Why we switch to SRT
 
 - SRT is more stable under bad internet.
-- Better support for new codecs
+- Better support for new codecs.
 
 ---
 # [fit] Real World Comparisons: RTMP vs SRT
