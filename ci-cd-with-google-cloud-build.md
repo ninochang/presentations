@@ -2,11 +2,11 @@ footer: nino.chang@**swag**.live
 slidenumbers: true
 build-lists: true
 
-![fit](https://storage.googleapis.com/nino-public/presentations/canary-with-cloud-deploy/canary-with-cloud-deploy.png)
+# [fit] **CI/CD with Google Cloud Build**
 
 ---
 [.build-lists: false]
-![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+![original](background-image.jpg)
 
 # Outline
 - Canary deployment
@@ -17,14 +17,14 @@ build-lists: true
 - Integrate with current ci
 
 ---
-![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+![original](background-image.jpg)
 # Canary deployment
 
 ![inline] (https://storage.googleapis.com/cdn.thenewstack.io/media/2017/11/a6324354-canary.gif)
 
 ---
 [.build-lists: false]
-![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+![original](background-image.jpg)
 # Canary deployment
 - Deploy 2 version app at same time
 - Configure load balancer route small amount of traffic to new version
@@ -32,18 +32,18 @@ build-lists: true
 - Rollout/Rollback according to monitor result
 
 ---
-![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+![original](background-image.jpg)
 # Cloud deploy configuration
 - skaffold.yaml: Skaffold configuration
 - clouddeploy.yaml: Config **delivery pipeline** and **targets**
 
 ---
-![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+![original](background-image.jpg)
 ## Skaffold
 ![inline](https://skaffold.dev/images/architecture.png)
 
 ---
-![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+![original](background-image.jpg)
 
 skaffold.yaml
 
@@ -68,7 +68,7 @@ verify:
 
 ---
 [.code-highlight: 3-5]
-![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+![original](background-image.jpg)
 
 skaffold.yaml - render manifest [^1]
 
@@ -94,7 +94,7 @@ verify:
 
 ---
 [.code-highlight: 6-7]
-![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+![original](background-image.jpg)
 
 skaffold.yaml - deploy [^2]
 
@@ -121,7 +121,7 @@ verify:
 
 ---
 [.code-highlight: 8-16]
-![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+![original](background-image.jpg)
 
 skaffold.yaml - verify [^3]
 
@@ -147,7 +147,7 @@ verify:
 [^3]: [Skaffold test with verify](https://skaffold.dev/docs/verify/)
 
 ---
-![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+![original](background-image.jpg)
 
 clouddeploy.yaml
 
@@ -174,14 +174,14 @@ gke:
 ```
 
 ---
-![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+![original](background-image.jpg)
 
 # Deploy Scenario
 - Single / Multi region
 - Canary deploy
 
 ---
-![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+![original](background-image.jpg)
 
 Single region
 
@@ -208,7 +208,7 @@ gke:
 ```
 
 ---
-![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+![original](background-image.jpg)
 
 Multi region - **DeliveryPipeline**
 
@@ -236,7 +236,7 @@ serialPipeline:
 
 ---
 [.code-highlight: 10-18]
-![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+![original](background-image.jpg)
 
 Multi region - **DeliveryPipeline**
 
@@ -264,7 +264,7 @@ serialPipeline:
 
 ---
 
-![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+![original](background-image.jpg)
 
 Multi region - **Targets**
 
@@ -300,7 +300,7 @@ gke:
 ```
 ---
 
-![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+![original](background-image.jpg)
 
 Canary Deploy [^3]
 
@@ -330,7 +330,7 @@ serialPipeline:
 
 ---
 [.code-highlight: 10-19]
-![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+![original](background-image.jpg)
 
 Canary Deploy
 
@@ -357,7 +357,7 @@ serialPipeline:
 ```
 
 ---
-![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+![original](background-image.jpg)
 Add **requireApproval: true** to enable approve.
 
 ```yaml
@@ -373,18 +373,18 @@ gke:
 ```
 
 ---
-![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+![original](background-image.jpg)
 # [fit] **DEMO**
 
 
 ---
-![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+![original](background-image.jpg)
 # Demo Repo
 
 [https://github.com/Robert-Rino/tool-kit/tree/master/cloud-deploy-gke](https://github.com/Robert-Rino/tool-kit/tree/master/cloud-deploy-gke)
 
 ---
-![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+![original](background-image.jpg)
 # Integrate with current ci
 Pre-rollout action canary
 
@@ -394,7 +394,7 @@ Pre-rollout action canary
 - Approve request to slask **#dev-ops** channel
 
 ---
-![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+![original](background-image.jpg)
 # Integrate with current ci
 rollout action
 
@@ -407,7 +407,7 @@ rollout action
 
 
 ---
-![original](https://storage.googleapis.com/nino-public/presentations/google-next-23/background.png)
+![original](background-image.jpg)
 # [fit] Q & A
 
 
