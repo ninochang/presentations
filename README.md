@@ -4,3 +4,4 @@
 3. [GoogleNext 23'](https://drive.google.com/file/d/1Q1qj_9h1P_R7sTcZK8_By4i7LRUFP2fB/view?usp=sharing)
 4. [Lego CI/CD with Github Actions](https://docs.google.com/presentation/d/1-l31Z6MDAE1HfoMy9JyUcKMVghskdozXSm5BKMASW_s/edit?usp=sharing)
 5. [Knative serving](https://github.com/ninochang/presentations/tree/master/knative)
+6. [Canary with cloud deploy](https://drive.google.com/file/d/12JBv_xi7_CuT8gONiNjAhHlWreb_bGBB/view?usp=sharing)
